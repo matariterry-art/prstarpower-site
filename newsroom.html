@@ -74,6 +74,37 @@
   footer p{font-family:var(--wire);font-size:9.5px;letter-spacing:.18em;
     text-transform:uppercase;color:var(--ash)}
   a:focus-visible{outline:2px solid var(--champagne);outline-offset:4px}
+
+  /* ---- The Wire ---- */
+  .wire-sec{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+    background:var(--surface);padding:34px 0;margin-bottom:8px}
+  .wire-head{display:flex;justify-content:space-between;align-items:center;
+    gap:16px;flex-wrap:wrap;margin-bottom:20px}
+  .wire-label{font-family:var(--wire);font-size:10px;letter-spacing:.28em;
+    text-transform:uppercase;color:var(--brass);display:flex;align-items:center;gap:9px}
+  .wire-label .dot{width:6px;height:6px;border-radius:50%;background:#7BE3A0;
+    display:inline-block;animation:pulse 2.4s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+  .wire-stamp{font-family:var(--wire);font-size:9.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--ash)}
+  .wire-list{display:grid;grid-template-columns:1fr 1fr;gap:0 40px}
+  .wire-row{display:grid;grid-template-columns:96px 1fr;gap:14px;
+    padding:11px 0;border-bottom:1px solid rgba(176,141,87,.14);
+    text-decoration:none;align-items:baseline;transition:opacity .25s}
+  .wire-row:hover{opacity:.62}
+  .wire-beat{font-family:var(--wire);font-size:8.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--brass);padding-top:3px}
+  .wire-title{font-size:14px;line-height:1.5;color:var(--bone);font-weight:300}
+  .wire-meta{grid-column:2;font-family:var(--wire);font-size:9px;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--ash);margin-top:5px}
+  .wire-row.house{border-bottom-color:rgba(232,217,181,.34)}
+  .wire-row.house .wire-beat{color:var(--champagne)}
+  .wire-row.house .wire-title{color:var(--champagne)}
+  .wire-row.house .wire-meta b{font-weight:700;color:var(--brass)}
+  .wire-note{margin-top:20px;font-size:11.5px;line-height:1.6;color:var(--ash);
+    max-width:60ch}
+  @media(max-width:860px){.wire-list{grid-template-columns:1fr;gap:0}}
+
   @media(max-width:860px){
     nav{display:none}
     .item{grid-template-columns:1fr;gap:12px}
@@ -104,26 +135,103 @@
   <a href="mailto:info@prstarpower.com" style="color:var(--champagne)">info@prstarpower.com</a>.</p>
 </div>
 
+<!-- WIRE:START -->
+<section class="wire-sec">
+  <div class="wrap">
+    <div class="wire-head">
+      <span class="wire-label"><i class="dot"></i>The Wire — Live</span>
+      <span class="wire-stamp">Updated 20 August 2026, 16:31 PT</span>
+    </div>
+    <div class="wire-list">
+      <a class="wire-row" href="https://deadline.com/" target="_blank" rel="noopener nofollow">
+        <span class="wire-beat">The Business</span>
+        <span class="wire-title">Studio consolidation talks continue as bidders circle</span>
+        <span class="wire-meta">Deadline &middot; 2h ago</span>
+      </a>
+      <a class="wire-row" href="https://techcrunch.com/" target="_blank" rel="noopener nofollow">
+        <span class="wire-beat">Tech &amp; AI</span>
+        <span class="wire-title">New video model enters limited studio testing</span>
+        <span class="wire-meta">TechCrunch AI &middot; 3h ago</span>
+      </a>
+      <a class="wire-row" href="https://variety.com/" target="_blank" rel="noopener nofollow">
+        <span class="wire-beat">The Pulse</span>
+        <span class="wire-title">Festival lineups firm up ahead of autumn season</span>
+        <span class="wire-meta">Variety &middot; 6h ago</span>
+      </a>
+      <a class="wire-row house" href="news-madonna-vma-legacy-signal.html">
+        <span class="wire-beat">Ours</span>
+        <span class="wire-title">Madonna tops the VMA nominations. That is a market signal, not a tribute.</span>
+        <span class="wire-meta"><b>PR STARPOWER</b> &middot; 7h ago</span>
+      </a>
+      <a class="wire-row house" href="news-un-week-hollywood-split.html">
+        <span class="wire-beat">Ours</span>
+        <span class="wire-title">The week Hollywood and the UN share a calendar</span>
+        <span class="wire-meta"><b>PR STARPOWER</b> &middot; 8h ago</span>
+      </a>
+      <a class="wire-row" href="https://www.musicbusinessworldwide.com/" target="_blank" rel="noopener nofollow">
+        <span class="wire-beat">The Business</span>
+        <span class="wire-title">Rights fund closes another catalogue acquisition</span>
+        <span class="wire-meta">Music Business Worldwide &middot; 9h ago</span>
+      </a>
+      <a class="wire-row" href="https://www.hollywoodreporter.com/" target="_blank" rel="noopener nofollow">
+        <span class="wire-beat">Tech &amp; AI</span>
+        <span class="wire-title">Guild negotiators return to the table over AI terms</span>
+        <span class="wire-meta">Hollywood Reporter &middot; yesterday</span>
+      </a>
+      <a class="wire-row house" href="freda-payne.html">
+        <span class="wire-beat">Ours</span>
+        <span class="wire-title">PR STARPOWER announces representation of Freda Payne</span>
+        <span class="wire-meta"><b>PR STARPOWER</b> &middot; yesterday</span>
+      </a>
+    </div>
+    <p class="wire-note">Headlines aggregated from industry trades and linked to their original publishers. PR STARPOWER original reporting and analysis appears below.</p>
+  </div>
+</section>
+<!-- WIRE:END -->
+
 <div class="wrap">
   <div class="feed">
+
+    <article class="item">
+      <div class="date">20 August 2026</div>
+      <div>
+        <span class="kind">The Pulse</span>
+        <h2><a href="news-un-week-hollywood-split.html" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--rule)">The Week Hollywood and the UN Share a Calendar</a></h2>
+        <p>UN High-Level Week, Climate Week, the Global Citizen Festival and the
+        MTV VMAs all land in the same seven days in late September — on opposite
+        coasts. The industry is treating them as separate calendars. They are not,
+        and the decision window closes in early September.</p>
+      </div>
+    </article>
+
+    <article class="item">
+      <div class="date">20 August 2026</div>
+      <div>
+        <span class="kind">The Pulse</span>
+        <h2><a href="news-madonna-vma-legacy-signal.html" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--rule)">Madonna Tops the VMA Nominations. That Is a Market Signal, Not a Tribute.</a></h2>
+        <p>Eleven nominations, forty-four years into a career. Touring saw it
+        first, catalogue funds second, beauty third. Awards recognition is the
+        last domino — and the correct reading is durability, not nostalgia.</p>
+      </div>
+    </article>
 
     <article class="item">
       <div class="date">19 August 2026</div>
       <div>
         <span class="kind">Client Announcement</span>
         <h2>PR STARPOWER announces representation of Freda Payne</h2>
-        <p>PR STARPOWER has announced its representation of recording artist, actress and
-        author Freda Payne. The two-time gold record artist appeared this year as cover star
-        of both Decree Entertainment Magazine and Courageous Woman Magazine, and was among the
-        most talked-about presences of Oscars week. She continues to perform to sold-out rooms
-        including Catalina Bar &amp; Grill in Hollywood and Blues Alley in Washington.
+        <p>PR STARPOWER has announced its representation of recording artist,
+        actress and author Freda Payne. The two-time gold record artist appeared
+        this year as cover star of both Decree Entertainment Magazine and
+        Courageous Woman Magazine, and was among the most talked-about presences
+        of Oscars week. She continues to perform to sold-out rooms including
+        Catalina Bar &amp; Grill in Hollywood and Blues Alley in Washington.
         Her full press kit is <a href="freda-payne.html" style="color:var(--champagne)">available here</a>.</p>
       </div>
     </article>
 
-    <div class="empty"><p>Further releases will appear here</p></div>
-
   </div>
+</div>
 </div>
 
 <div class="wrap foot-cta">

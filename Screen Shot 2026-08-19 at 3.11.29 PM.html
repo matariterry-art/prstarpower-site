@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PR STARPOWER — Where Stars Become Icons</title>
+<meta name="description" content="A modern representation house in Hollywood. Publicity, crisis and reputation command, in-house booking, brand partnerships, and the Crossover Division — turning creators into names and names into stars.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://prstarpower.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="PR STARPOWER — Where Stars Become Icons">
+<meta property="og:description" content="Publicity, reputation, in-house booking and brand — under one roof.">
+<meta property="og:url" content="https://prstarpower.com/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"PR STARPOWER",
+"url":"https://prstarpower.com","email":"info@prstarpower.com",
+"description":"A modern representation house providing publicity, crisis and reputation management, in-house booking, brand partnerships, and talent development.",
+"address":{"@type":"PostalAddress","addressLocality":"Hollywood","addressRegion":"CA","addressCountry":"US"},
+"areaServed":["United States","United Kingdom","Europe"],
+"knowsAbout":["Entertainment publicity","Crisis communications","Talent booking","Brand partnerships","Creator economy"]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Archivo:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B0A09;
+    --surface:#121110;
+    --bone:#EDE9E3;
+    --ash:#7E7871;
+    --brass:#B08D57;
+    --champagne:#E8D9B5;
+    --rule:rgba(176,141,87,.28);
+    --display:"Bodoni Moda", Georgia, serif;
+    --body:"Archivo", -apple-system, sans-serif;
+    --wire:"Space Mono", monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--ink);color:var(--bone);
+    font-family:var(--body);font-weight:300;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+
+  /* ---------- header ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    backdrop-filter:blur(14px);
+    background:rgba(11,10,9,.72);
+    border-bottom:1px solid var(--rule);
+  }
+  .bar{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .mark{
+    font-family:var(--display);font-size:19px;letter-spacing:.34em;
+    text-transform:uppercase;text-decoration:none;color:var(--bone);
+  }
+  .mark em{font-style:normal;color:var(--brass)}
+  nav{display:flex;gap:34px}
+  nav a{
+    font-family:var(--wire);font-size:10.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--ash);text-decoration:none;
+    transition:color .3s;
+  }
+  nav a:hover,nav a:focus-visible{color:var(--champagne)}
+
+  /* ---------- hero ---------- */
+  .hero{
+    min-height:100vh;display:flex;flex-direction:column;
+    justify-content:center;padding-top:74px;position:relative;
+  }
+  .eyebrow{
+    font-family:var(--wire);font-size:10.5px;letter-spacing:.32em;
+    text-transform:uppercase;color:var(--brass);margin-bottom:44px;
+  }
+  h1{
+    font-family:var(--display);font-weight:400;
+    font-size:clamp(3.1rem,10.5vw,10rem);
+    line-height:.88;letter-spacing:-.02em;
+  }
+  h1 .it{font-style:italic;color:var(--champagne)}
+  .lede{
+    margin-top:52px;max-width:44ch;font-size:16.5px;
+    line-height:1.75;color:var(--ash);
+  }
+  .rule-thin{height:1px;background:var(--rule);margin:0}
+
+  /* ---------- wire ticker (signature) ---------- */
+  .wire{
+    border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+    overflow:hidden;padding:17px 0;background:var(--surface);
+  }
+  .wire-track{
+    display:flex;gap:56px;white-space:nowrap;width:max-content;
+    animation:slide 44s linear infinite;
+  }
+  .wire-track span{
+    font-family:var(--wire);font-size:11px;letter-spacing:.26em;
+    text-transform:uppercase;color:var(--ash);
+  }
+  .wire-track span::before{content:"◆";color:var(--brass);margin-right:20px;font-size:7px;vertical-align:middle}
+  @keyframes slide{to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion:reduce){.wire-track{animation:none}}
+
+  /* ---------- sections ---------- */
+  section{padding:132px 0}
+  .label{
+    font-family:var(--wire);font-size:10.5px;letter-spacing:.3em;
+    text-transform:uppercase;color:var(--brass);margin-bottom:38px;
+  }
+  h2{
+    font-family:var(--display);font-weight:400;
+    font-size:clamp(2.1rem,5.4vw,4.3rem);line-height:1.02;
+    letter-spacing:-.015em;max-width:19ch;
+  }
+
+  /* services list */
+  .svc{border-top:1px solid var(--rule)}
+  .svc-row{
+    display:grid;grid-template-columns:1.15fr 1fr;gap:48px;
+    padding:38px 0;border-bottom:1px solid var(--rule);
+    transition:padding-left .45s cubic-bezier(.2,.7,.3,1);
+  }
+  .svc-row:hover{padding-left:22px}
+  .svc-row h3{
+    font-family:var(--display);font-weight:400;
+    font-size:clamp(1.45rem,3vw,2.3rem);line-height:1.14;
+  }
+  .svc-row p{font-size:14.5px;line-height:1.8;color:var(--ash);max-width:46ch}
+  .flag{
+    display:inline-block;font-family:var(--wire);font-size:9.5px;
+    letter-spacing:.22em;text-transform:uppercase;color:var(--brass);
+    border:1px solid var(--rule);padding:4px 10px;margin-bottom:14px;
+  }
+
+  /* crisis feature */
+  .crisis{background:var(--surface);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+  .crisis h2{max-width:15ch}
+  .crisis .lede2{margin-top:40px;max-width:56ch;font-size:16.5px;line-height:1.8;color:var(--ash)}
+  .clock{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+    margin-top:76px;background:var(--rule);
+  }
+  .clock div{background:var(--surface);padding:34px 30px}
+  .clock .t{
+    font-family:var(--wire);font-size:11px;letter-spacing:.24em;
+    color:var(--brass);text-transform:uppercase;
+  }
+  .clock .d{margin-top:16px;font-size:14px;line-height:1.7;color:var(--ash)}
+
+  /* access */
+  .access-grid{display:grid;grid-template-columns:1fr 1fr;gap:96px;align-items:start}
+  .access-grid p{font-size:16px;line-height:1.85;color:var(--ash);margin-bottom:24px}
+  .creds{border-top:1px solid var(--rule);margin-top:8px}
+  .creds div{
+    padding:22px 0;border-bottom:1px solid var(--rule);
+    font-family:var(--wire);font-size:11px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--bone);
+  }
+
+  /* contact */
+  .contact{text-align:center;padding:150px 0}
+  .contact h2{margin:0 auto;max-width:16ch}
+  .cta{
+    display:inline-block;margin-top:54px;
+    font-family:var(--wire);font-size:11px;letter-spacing:.28em;
+    text-transform:uppercase;color:var(--ink);background:var(--champagne);
+    padding:19px 46px;text-decoration:none;transition:background .3s,color .3s;
+  }
+  .cta:hover,.cta:focus-visible{background:var(--brass);color:var(--ink)}
+  footer{border-top:1px solid var(--rule);padding:42px 0}
+  .foot{
+    display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
+    font-family:var(--wire);font-size:10px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--ash);
+  }
+  a:focus-visible,.cta:focus-visible{outline:2px solid var(--champagne);outline-offset:4px}
+
+
+  .clients{border-top:1px solid var(--rule);background:var(--surface)}
+  .cl-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:64px;align-items:center}
+  .cl-card{display:block;text-decoration:none;color:inherit;
+    border:1px solid var(--rule);padding:38px 34px;transition:border-color .3s,background .3s}
+  .cl-card:hover{border-color:var(--champagne);background:rgba(232,217,181,.03)}
+  .cl-card .nm{font-family:var(--display);font-size:34px;line-height:1.05;margin-bottom:10px}
+  .cl-card .rl{font-family:var(--wire);font-size:10px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--brass);margin-bottom:20px}
+  .cl-card .ds{font-size:14.5px;line-height:1.75;color:var(--ash);margin-bottom:24px}
+  .cl-card .go{font-family:var(--wire);font-size:10px;letter-spacing:.24em;
+    text-transform:uppercase;color:var(--champagne)}
+
+  @media(max-width:860px){
+    .wrap{padding:0 22px}
+    nav{display:none}
+    section{padding:88px 0}
+    .svc-row{grid-template-columns:1fr;gap:16px}
+    .clock{grid-template-columns:1fr}
+    .access-grid{grid-template-columns:1fr;gap:52px}
+    .cl-grid{grid-template-columns:1fr;gap:40px}
+    .lede{margin-top:38px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="mark" href="#top">PR Star<em>power</em></a>
+    <nav>
+      <a href="#work">Practice</a>
+      <a href="#crisis">Crisis</a>
+      <a href="#access">Access</a>
+      <a href="#clients">Clients</a>
+      <a href="newsroom.html">Newsroom</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div id="top" class="wrap hero">
+  <div class="eyebrow">Hollywood · Digital Media · International</div>
+  <h1>Where stars<br>become <span class="it">icons</span>.</h1>
+  <p class="lede">A modern representation house. We do not only place the story — we book the room, negotiate the deal, and build the career. Publicity, reputation, booking, and brand, under one roof.</p>
+</div>
+
+<div class="wire">
+  <div class="wire-track">
+    <span>Crisis &amp; Reputation Command</span>
+    <span>In-House Booking</span>
+    <span>Red Carpet Placement</span>
+    <span>The Crossover Division</span>
+    <span>Brand &amp; Endorsement Deals</span>
+    <span>Credentialed Press Access</span>
+    <span>International &amp; Diplomatic Circles</span>
+    <span>Crisis &amp; Reputation Command</span>
+    <span>In-House Booking</span>
+    <span>Red Carpet Placement</span>
+    <span>The Crossover Division</span>
+    <span>Brand &amp; Endorsement Deals</span>
+    <span>Credentialed Press Access</span>
+    <span>International &amp; Diplomatic Circles</span>
+</div>
+</div>
+
+<section id="work" class="wrap">
+  <div class="label">The Practice</div>
+  <h2>Most firms send the pitch.<br>We <span class="it">close the room</span>.</h2>
+  <p class="lede" style="margin-top:34px">Publicity alone is a partial service. A story runs, and
+  then what. We represent the whole career — the coverage, the booking, the deal, and the
+  reputation that has to survive all three. Direct, in house, without waiting on anyone else's
+  agent to return a call.</p>
+
+  <div class="svc" style="margin-top:76px">
+    <div class="svc-row">
+      <div><span class="flag">Flagship</span><h3>Crisis &amp; Reputation Command</h3></div>
+      <p>When the cycle turns, hours decide years. Rapid assessment, narrative strategy, and a
+      rebuild arc that carries past containment into recovery. Aggressive on narrative, clean on
+      method — because method failures become the second story.</p>
+    </div>
+    <div class="svc-row">
+      <div><span class="flag">In House</span><h3>Booking &amp; Representation</h3></div>
+      <p>We book directly. Festivals, performing arts centres, supper clubs, resorts and cruise
+      lines, television, and corporate and private engagements — negotiated by us, not routed
+      through a third party and hoped for.</p>
+    </div>
+    <div class="svc-row">
+      <div><span class="flag">Growth Division</span><h3>The Crossover Division</h3></div>
+      <p>For creators with audience, revenue, and no route into the industry. Reach is not
+      standing. We convert one into the other — carpets, rooms, legitimate press, and the polish
+      those rooms require. Influencer to name. Name to star.</p>
+    </div>
+    <div class="svc-row">
+      <div><h3>Brand, Endorsement &amp; Partnership</h3></div>
+      <p>Ambassador arrangements, beauty and fragrance alignment, product lines, and cross-border
+      partnerships — structured around leverage rather than gratitude.</p>
+    </div>
+    <div class="svc-row">
+      <div><h3>Media Relations &amp; Press Placement</h3></div>
+      <p>Trade, national, and international. Stories built to be published, pitched to the people
+      who publish them — and carried by our own newsroom when the moment calls for it.</p>
+    </div>
+    <div class="svc-row">
+      <div><h3>Red Carpet &amp; Event Placement</h3></div>
+      <p>Placement on the carpets that matter, with the credential and the hook that make the
+      invitation happen — including the satellite calendar where access is actually won.</p>
+    </div>
+    <div class="svc-row">
+      <div><h3>Talent Development &amp; Image</h3></div>
+      <p>Press training, presence, and the long build from working professional to recognised
+      name. The part nobody photographs.</p>
+    </div>
+  </div>
+</section>
+
+<section id="crisis" class="crisis">
+  <div class="wrap">
+    <div class="label">Reputation</div>
+    <h2>The story is going to be told. The question is by whom.</h2>
+    <p class="lede2">Our founder came up in journalism. That matters here — knowing how a story is constructed is knowing where it can be redirected. We work through accurate narrative, relationships, and timing. Aggressive on narrative, clean on method, because method failures become the second story.</p>
+    <div class="clock">
+      <div>
+        <div class="t">First 24 Hours</div>
+        <div class="d">Assessment, containment, and the decision most people get wrong — whether to speak at all.</div>
+      </div>
+      <div>
+        <div class="t">72 Hours</div>
+        <div class="d">Stakeholder mapping, counter-narrative, and placement with the outlets that set the frame.</div>
+      </div>
+      <div>
+        <div class="t">30 Days &amp; Beyond</div>
+        <div class="d">The recovery arc. Visibility rebuilt deliberately, with milestones that prove the cycle has turned.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="access" class="wrap">
+  <div class="access-grid">
+    <div>
+      <div class="label">Access</div>
+      <h2>Most publicists work the line. We are credentialed inside it.</h2>
+    </div>
+    <div>
+      <p>PR STARPOWER is led by a credentialed journalist with international press affiliations and dignitary-level relationships, including United Nations–connected work.</p>
+      <p>That is not a biography line. It is a structural advantage. It opens rooms, international arenas, and diplomatic, humanitarian, and global cultural circles that sit outside the reach of a conventional entertainment firm — and it is why our clients travel further than the domestic press cycle.</p>
+      <div class="creds">
+        <div>Credentialed Press</div>
+        <div>International Affiliations</div>
+        <div>Diplomatic &amp; Humanitarian Circles</div>
+        <div>Global Award &amp; Festival Circuits</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="clients" class="clients">
+  <div class="wrap">
+    <div class="label">Representation</div>
+    <div class="cl-grid">
+      <div>
+        <h2>Legacy is a<br><span class="it">living asset</span>.</h2>
+      </div>
+      <a class="cl-card" href="freda-payne.html">
+        <div class="rl">Client — Press Kit</div>
+        <div class="nm">Freda Payne</div>
+        <div class="ds">Two gold records. Number one in Britain. Six decades on stage — and two
+        magazine covers in 2026. Recording artist, actress, author.</div>
+        <div class="go">View press kit →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="label">Representation</div>
+    <h2>Selective by design.</h2>
+    <a class="cta" href="mailto:press@prstarpower.com">Begin a conversation</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div>PR Starpower™ — Hollywood, California</div>
+    <div>Publicity · Reputation · Global Access</div>
+  </div>
+</footer>
+
+</body>
+</html>
