@@ -1,0 +1,41 @@
+name: The Wire
+
+# Free. No API key. GitHub Actions is free on public repositories.
+# Pulls live trade headlines into newsroom.html four times a day.
+
+on:
+  schedule:
+    - cron: '0 13 * * *'   # 6am PT
+    - cron: '0 17 * * *'   # 10am PT
+    - cron: '0 21 * * *'   # 2pm PT
+    - cron: '0 1 * * *'    # 6pm PT
+  workflow_dispatch:        # lets you run it by hand any time
+
+permissions:
+  contents: write
+
+jobs:
+  wire:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Pull the wire
+        run: python wire.py
+
+      - name: Publish if changed
+        run: |
+          git config user.name  "PR STARPOWER Wire"
+          git config user.email "info@prstarpower.com"
+          if [[ -n "$(git status --porcelain newsroom.html)" ]]; then
+            git add newsroom.html
+            git commit -m "Wire update — $(date -u '+%Y-%m-%d %H:%M UTC')"
+            git push
+            echo "Wire published."
+          else
+            echo "No change since last run."
+          fi
