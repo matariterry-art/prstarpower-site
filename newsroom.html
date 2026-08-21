@@ -97,6 +97,7 @@
   .wire-title{font-size:14px;line-height:1.5;color:var(--bone);font-weight:300}
   .wire-meta{grid-column:2;font-family:var(--wire);font-size:9px;
     letter-spacing:.12em;text-transform:uppercase;color:var(--ash);margin-top:5px}
+  .wire-pic{width:100%;max-width:150px;aspect-ratio:16/9;object-fit:cover;display:block;margin-bottom:9px;border:1px solid var(--rule)}
   .wire-row.house{border-bottom-color:rgba(232,217,181,.34)}
   .wire-row.house .wire-beat{color:var(--champagne)}
   .wire-row.house .wire-title{color:var(--champagne)}
@@ -105,8 +106,40 @@
     max-width:60ch}
   @media(max-width:860px){.wire-list{grid-template-columns:1fr;gap:0}}
 
+
+
+  /* ---- item thumbnails ---- */
+  .item{grid-template-columns:150px 200px 1fr}
+  .item .thumb{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;
+    border:1px solid var(--rule);background:var(--surface)}
+  .item.nopic{grid-template-columns:150px 1fr}
   @media(max-width:860px){
-    nav{display:none}
+    .item,.item.nopic{grid-template-columns:1fr!important;gap:14px}
+    .item .thumb{aspect-ratio:16/9;order:-1}
+  }
+
+  /* ---- mobile navigation ---- */
+  .navtoggle{display:none;background:none;border:none;padding:10px 0 10px 14px;
+    cursor:pointer;-webkit-tap-highlight-color:transparent}
+  .navtoggle span{display:block;width:22px;height:1.5px;background:var(--bone);
+    margin:5px 0;transition:transform .3s,opacity .25s}
+  .navtoggle[aria-expanded="true"] span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+  .navtoggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+  .navtoggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+  @media(max-width:860px){
+    .navtoggle{display:block}
+    nav{display:block;position:fixed;top:70px;left:0;right:0;
+      background:rgba(11,10,9,.985);backdrop-filter:blur(20px);
+      border-bottom:1px solid var(--rule);
+      padding:0 32px;max-height:0;overflow:hidden;
+      transition:max-height .34s ease,padding .34s ease}
+    nav.open{max-height:80vh;padding:14px 32px 28px}
+    nav a{display:block;padding:17px 0;font-size:12px;letter-spacing:.24em;
+      border-bottom:1px solid rgba(176,141,87,.16);color:var(--bone)}
+    nav a:last-child{border-bottom:none}
+  }
+
+  @media(max-width:860px){
     .item{grid-template-columns:1fr;gap:12px}
     .top{padding:130px 0 50px}
   }
@@ -117,7 +150,8 @@
 <header>
   <div class="wrap bar">
     <a class="mark" href="index.html">PR Star<em>power</em></a>
-    <nav>
+    <button class="navtoggle" aria-label="Menu" aria-expanded="false" aria-controls="sitenav"><span></span><span></span><span></span></button>
+    <nav id="sitenav">
       <a href="index.html#work">Practice</a>
       <a href="index.html#crisis">Crisis</a>
       <a href="index.html#clients">Clients</a>
@@ -140,98 +174,43 @@
   <div class="wrap">
     <div class="wire-head">
       <span class="wire-label"><i class="dot"></i>The Wire — Live</span>
-      <span class="wire-stamp">Updated 20 August 2026, 17:10 PT</span>
+      <span class="wire-stamp">Updated 20 August 2026, 17:44 PT</span>
     </div>
     <div class="wire-list">
-      <a class="wire-row" href="https://variety.com/2026/film/news/jaafar-jackson-michael-sequel-insight-child-abuse-allegations-1236839600/" target="_blank" rel="noopener nofollow">
-        <span class="wire-beat">The Pulse</span>
-        <span class="wire-title">Jaafar Jackson: ‘Michael’ Sequel Will Give ‘More Insight’ Into Child Abuse Allegations and ‘Let His Voice Be Heard’</span>
-        <span class="wire-meta">Variety &middot; 14m ago</span>
-      </a>
-      <a class="wire-row" href="https://www.billboard.com/music/rb-hip-hop/nba-youngboy-sober-1236321456/" target="_blank" rel="noopener nofollow">
-        <span class="wire-beat">The Pulse</span>
-        <span class="wire-title">NBA YoungBoy Is Giving Sobriety a Chance: ‘I’m Trying to See if I Really Can Make It to 6 Months’</span>
-        <span class="wire-meta">Billboard &middot; 24m ago</span>
-      </a>
-      <a class="wire-row" href="https://variety.com/2026/music/news/ariana-grande-slams-trump-we-cant-be-friends-tiktok-post-1236839607/" target="_blank" rel="noopener nofollow">
-        <span class="wire-beat">The Pulse</span>
-        <span class="wire-title">Ariana Grande Blasts Trump Administration for Using ‘We Can’t Be Friends’ in Social Post: ‘Your Truth Is False’</span>
-        <span class="wire-meta">Variety &middot; 27m ago</span>
-      </a>
-      <a class="wire-row" href="https://www.billboard.com/pro/jay-z-lawsuit-rape-accusation-appeals-court/" target="_blank" rel="noopener nofollow">
-        <span class="wire-beat">The Pulse</span>
-        <span class="wire-title">Jay-Z’s Defamation Lawsuit Against Lawyer Who Filed Rape Case Faces Skeptical Appeals Court</span>
-        <span class="wire-meta">Billboard &middot; 29m ago</span>
-      </a>
-      <a class="wire-row" href="https://www.billboard.com/music/pop/ariana-grande-slams-donald-trump-administration-tiktok-1236321486/" target="_blank" rel="noopener nofollow">
-        <span class="wire-beat">The Pulse</span>
-        <span class="wire-title">Ariana Grande Slams Trump Administration for Using ‘We Can’t Be Friends’ in TikTok Video: ‘Your Truth Is False’</span>
-        <span class="wire-meta">Billboard &middot; 37m ago</span>
-      </a>
-      <a class="wire-row" href="https://www.hollywoodreporter.com/movies/movie-reviews/the-magic-faraway-tree-review-claire-foy-andrew-garfield-1236666316/" target="_blank" rel="noopener nofollow">
+      <a class="wire-row" href="https://deadline.com/" target="_blank" rel="noopener nofollow">
         <span class="wire-beat">The Business</span>
-        <span class="wire-title">‘The Magic Faraway Tree’ Review: Claire Foy and Andrew Garfield in an Exhaustingly Cutesy Kid Flick</span>
-        <span class="wire-meta">Hollywood Reporter &middot; 37m ago</span>
+        <span class="wire-title">Studio consolidation talks continue as bidders circle</span>
+        <span class="wire-meta">Deadline &middot; 2h ago</span>
       </a>
-      <a class="wire-row" href="https://www.hollywoodreporter.com/movies/movie-news/bad-day-cameron-diaz-netflix-release-first-look-1236678165/" target="_blank" rel="noopener nofollow">
-        <span class="wire-beat">The Business</span>
-        <span class="wire-title">Cameron Diaz’s Netflix Action-Comedy ‘Bad Day’ Gets December Release and First Look</span>
-        <span class="wire-meta">Hollywood Reporter &middot; 54m ago</span>
-      </a>
-      <a class="wire-row" href="https://www.billboard.com/culture/product-recommendations/english-premier-league-2026-2027-watch-livestream-online-free-1236318626/" target="_blank" rel="noopener nofollow">
-        <span class="wire-beat">The Pulse</span>
-        <span class="wire-title">English Premier League 2026-27: Here’s Where to Watch Soccer Matches Live Online for Free</span>
-        <span class="wire-meta">Billboard &middot; 1h ago</span>
-      </a>
-      <a class="wire-row" href="https://deadline.com/2026/08/ariana-grande-slams-trump-using-song-anti-trans-tiktok-1237047037/" target="_blank" rel="noopener nofollow">
-        <span class="wire-beat">The Pulse</span>
-        <span class="wire-title">Ariana Grande Slams Trump For Using Her Song In Anti-Trans TikTok: “Your Truth Is False”</span>
-        <span class="wire-meta">Deadline &middot; 1h ago</span>
-      </a>
-      <a class="wire-row" href="https://www.hollywoodreporter.com/tv/tv-features/lanterns-damon-lindelof-adaptations-1236677970/" target="_blank" rel="noopener nofollow">
-        <span class="wire-beat">The Business</span>
-        <span class="wire-title">‘Lanterns’ EP Damon Lindelof Weighs In on 2026’s Adaptation Wars: “Shouldn’t We Be Beyond This by Now?”</span>
-        <span class="wire-meta">Hollywood Reporter &middot; 1h ago</span>
-      </a>
-      <a class="wire-row" href="https://www.hollywoodreporter.com/business/business-news/nithya-raman-paramount-warner-bros-court-1236678117/" target="_blank" rel="noopener nofollow">
-        <span class="wire-beat">The Business</span>
-        <span class="wire-title">L.A. Mayoral Candidate Nithya Raman Says Legality of Paramount-Warner Bros. Merger “Should Be Decided in Court”</span>
-        <span class="wire-meta">Hollywood Reporter &middot; 1h ago</span>
-      </a>
-      <a class="wire-row" href="https://techcrunch.com/2026/08/20/openai-is-gaining-on-anthropic-with-business-users-new-data-indicates/" target="_blank" rel="noopener nofollow">
+      <a class="wire-row" href="https://techcrunch.com/" target="_blank" rel="noopener nofollow">
         <span class="wire-beat">Tech &amp; AI</span>
-        <span class="wire-title">OpenAI is gaining on Anthropic with business users, new data indicates</span>
-        <span class="wire-meta">TechCrunch AI &middot; 1h ago</span>
+        <span class="wire-title">New video model enters limited studio testing</span>
+        <span class="wire-meta">TechCrunch AI &middot; 3h ago</span>
       </a>
-      <a class="wire-row" href="https://deadline.com/2026/08/outer-banks-season-5-ending-explained-by-creators-interview-1237044830/" target="_blank" rel="noopener nofollow">
+      <a class="wire-row" href="https://variety.com/" target="_blank" rel="noopener nofollow">
         <span class="wire-beat">The Pulse</span>
-        <span class="wire-title">‘Outer Banks’ Creators Break Down Season 5’s “Earned” Ending, Supernatural Lean &amp; JJ’s Presence</span>
-        <span class="wire-meta">Deadline &middot; 1h ago</span>
+        <span class="wire-title">Festival lineups firm up ahead of autumn season</span>
+        <span class="wire-meta">Variety &middot; 6h ago</span>
       </a>
-      <a class="wire-row" href="https://variety.com/2026/tv/news/star-trek-strange-new-worlds-puppet-episode-1236833011/" target="_blank" rel="noopener nofollow">
-        <span class="wire-beat">The Pulse</span>
-        <span class="wire-title">How ‘Star Trek: Strange New Worlds’ Pulled Off That Madcap Puppet Episode</span>
-        <span class="wire-meta">Variety &middot; 1h ago</span>
+      <a class="wire-row house" href="news-madonna-vma-legacy-signal.html">
+        <span class="wire-beat">Ours</span>
+        <span class="wire-title">Madonna tops the VMA nominations. That is a market signal, not a tribute.</span>
+        <span class="wire-meta"><b>PR STARPOWER</b> &middot; 8h ago</span>
       </a>
-      <a class="wire-row" href="https://deadline.com/2026/08/jaafar-jackson-michael-sequel-child-abuse-allegations-1237046974/" target="_blank" rel="noopener nofollow">
-        <span class="wire-beat">The Pulse</span>
-        <span class="wire-title">Jaafar Jackson Says ‘Michael’ Sequel “Will Give Even More Insight” Into Child Abuse Allegations “From His Point Of View”</span>
-        <span class="wire-meta">Deadline &middot; 1h ago</span>
+      <a class="wire-row house" href="news-un-week-hollywood-split.html">
+        <span class="wire-beat">Ours</span>
+        <span class="wire-title">The week Hollywood and the UN share a calendar</span>
+        <span class="wire-meta"><b>PR STARPOWER</b> &middot; 9h ago</span>
       </a>
-      <a class="wire-row" href="https://variety.com/2026/film/global/prime-video-2-billion-investment-latin-america-1236839446/" target="_blank" rel="noopener nofollow">
-        <span class="wire-beat">The Pulse</span>
-        <span class="wire-title">Prime Video Unveils Landmark $2 Billion-Plus Investment in Latin American Entertainment</span>
-        <span class="wire-meta">Variety &middot; 1h ago</span>
-      </a>
-      <a class="wire-row" href="https://deadline.com/2026/08/spider-man-insidious-out-of-the-further-global-box-office-1237046811/" target="_blank" rel="noopener nofollow">
-        <span class="wire-beat">The Pulse</span>
-        <span class="wire-title">‘Insidious: Out Of The Further’ To Scare Up $50M+ WW; ‘Spider-Man: Brand New Day’ To Prevail With $85M+ WW In Fourth Frame – Bo…</span>
-        <span class="wire-meta">Deadline &middot; 1h ago</span>
-      </a>
-      <a class="wire-row" href="https://techcrunch.com/2026/08/20/chatgpt-can-now-send-texts-for-you-with-new-apple-messages-plugin/" target="_blank" rel="noopener nofollow">
+      <a class="wire-row" href="https://www.hollywoodreporter.com/" target="_blank" rel="noopener nofollow">
         <span class="wire-beat">Tech &amp; AI</span>
-        <span class="wire-title">ChatGPT can now send texts for you with new Apple Messages plug-in</span>
-        <span class="wire-meta">TechCrunch AI &middot; 2h ago</span>
+        <span class="wire-title">Guild negotiators return over AI terms</span>
+        <span class="wire-meta">Hollywood Reporter &middot; yesterday</span>
+      </a>
+      <a class="wire-row house haspic" href="freda-payne.html">
+        <span class="wire-beat">Ours</span>
+        <span class="wire-title"><img class="wire-pic" src="images/freda-portrait.jpg" alt="" loading="lazy">PR STARPOWER announces representation of Freda Payne</span>
+        <span class="wire-meta"><b>PR STARPOWER</b> &middot; yesterday</span>
       </a>
     </div>
     <p class="wire-note">Headlines aggregated from industry trades and linked to their original publishers. PR STARPOWER original reporting and analysis appears below.</p>
@@ -242,7 +221,7 @@
 <div class="wrap">
   <div class="feed">
 
-    <article class="item">
+    <article class="item nopic">
       <div class="date">20 August 2026</div>
       <div>
         <span class="kind">The Pulse</span>
@@ -254,7 +233,7 @@
       </div>
     </article>
 
-    <article class="item">
+    <article class="item nopic">
       <div class="date">20 August 2026</div>
       <div>
         <span class="kind">The Pulse</span>
@@ -267,6 +246,7 @@
 
     <article class="item">
       <div class="date">19 August 2026</div>
+      <a href="freda-payne.html"><img class="thumb" src="images/freda-portrait.jpg" alt="Freda Payne"></a>
       <div>
         <span class="kind">Client Announcement</span>
         <h2>PR STARPOWER announces representation of Freda Payne</h2>
@@ -296,5 +276,18 @@
   </footer>
 </div>
 
+<script>
+(function(){
+  var b=document.querySelector('.navtoggle'),n=document.getElementById('sitenav');
+  if(!b||!n)return;
+  b.addEventListener('click',function(){
+    var open=n.classList.toggle('open');
+    b.setAttribute('aria-expanded',open?'true':'false');
+  });
+  n.addEventListener('click',function(e){
+    if(e.target.tagName==='A'){n.classList.remove('open');b.setAttribute('aria-expanded','false');}
+  });
+})();
+</script>
 </body>
 </html>

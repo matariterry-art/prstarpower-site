@@ -191,9 +191,30 @@
   .cl-card .go{font-family:var(--wire);font-size:10px;letter-spacing:.24em;
     text-transform:uppercase;color:var(--champagne)}
 
+
+  /* ---- mobile navigation ---- */
+  .navtoggle{display:none;background:none;border:none;padding:10px 0 10px 14px;
+    cursor:pointer;-webkit-tap-highlight-color:transparent}
+  .navtoggle span{display:block;width:22px;height:1.5px;background:var(--bone);
+    margin:5px 0;transition:transform .3s,opacity .25s}
+  .navtoggle[aria-expanded="true"] span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+  .navtoggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+  .navtoggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+  @media(max-width:860px){
+    .navtoggle{display:block}
+    nav{display:block;position:fixed;top:70px;left:0;right:0;
+      background:rgba(11,10,9,.985);backdrop-filter:blur(20px);
+      border-bottom:1px solid var(--rule);
+      padding:0 32px;max-height:0;overflow:hidden;
+      transition:max-height .34s ease,padding .34s ease}
+    nav.open{max-height:80vh;padding:14px 32px 28px}
+    nav a{display:block;padding:17px 0;font-size:12px;letter-spacing:.24em;
+      border-bottom:1px solid rgba(176,141,87,.16);color:var(--bone)}
+    nav a:last-child{border-bottom:none}
+  }
+
   @media(max-width:860px){
     .wrap{padding:0 22px}
-    nav{display:none}
     section{padding:88px 0}
     .svc-row{grid-template-columns:1fr;gap:16px}
     .clock{grid-template-columns:1fr}
@@ -208,7 +229,8 @@
 <header>
   <div class="wrap bar">
     <a class="mark" href="#top">PR Star<em>power</em></a>
-    <nav>
+    <button class="navtoggle" aria-label="Menu" aria-expanded="false" aria-controls="sitenav"><span></span><span></span><span></span></button>
+    <nav id="sitenav">
       <a href="#work">Practice</a>
       <a href="#crisis">Crisis</a>
       <a href="#access">Access</a>
@@ -369,5 +391,18 @@
   </div>
 </footer>
 
+<script>
+(function(){
+  var b=document.querySelector('.navtoggle'),n=document.getElementById('sitenav');
+  if(!b||!n)return;
+  b.addEventListener('click',function(){
+    var open=n.classList.toggle('open');
+    b.setAttribute('aria-expanded',open?'true':'false');
+  });
+  n.addEventListener('click',function(e){
+    if(e.target.tagName==='A'){n.classList.remove('open');b.setAttribute('aria-expanded','false');}
+  });
+})();
+</script>
 </body>
 </html>

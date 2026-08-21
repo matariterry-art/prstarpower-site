@@ -37,7 +37,7 @@ FEEDS = [
 
 # House items — PR STARPOWER's own wire copy.
 # Edit wire-house.txt to add them. One item per line, pipe separated:
-#   headline | link | beat | YYYY-MM-DD HH:MM
+#   headline | link | beat | YYYY-MM-DD HH:MM | image (optional)
 # Beat is Pulse, Business or Tech. Link may be a local page (news-x.html).
 HOUSE_FILE = "wire-house.txt"
 
@@ -108,6 +108,7 @@ def load_house():
             continue
 
         title, link, beat = parts[0], parts[1], parts[2]
+        image = parts[4].strip() if len(parts) >= 5 and parts[4].strip() else None
         when = datetime.now(timezone.utc)
         if len(parts) >= 4 and parts[3]:
             try:
@@ -126,6 +127,7 @@ def load_house():
             "beat": beat,
             "when": when,
             "house": True,
+            "image": image,
         })
 
     print("  house items: %d" % len(items))
@@ -227,20 +229,27 @@ def build_block(items):
                      else html.escape(it["source"]))
         beat_label = (BEAT_LABEL.get(it["beat"], it["beat"])
                       if not is_house else "Ours")
-        rows.append(
+        pic = ""
+        if is_house and it.get("image"):
+            pic = ('<img class="wire-pic" src="%s" alt="" loading="lazy">'
+                   % html.escape(it["image"], quote=True))
+            cls += " haspic"
+        tmpl = (
             '      <a class="%s" href="%s"%s>\n'
             '        <span class="wire-beat">%s</span>\n'
-            '        <span class="wire-title">%s</span>\n'
+            '        <span class="wire-title">' + pic + '%s</span>\n'
             '        <span class="wire-meta">%s &middot; %s</span>\n'
             '      </a>'
-            % (cls,
-               html.escape(it["link"], quote=True),
-               target,
-               beat_label,
-               html.escape(it["title"]),
-               src_label,
-               relative(it["when"], now))
         )
+        rows.append(tmpl % (
+            cls,
+            html.escape(it["link"], quote=True),
+            target,
+            beat_label,
+            html.escape(it["title"]),
+            src_label,
+            relative(it["when"], now),
+        ))
 
     return (
         '<!-- WIRE:START -->\n'
@@ -284,6 +293,8 @@ WIRE_CSS = """
   .wire-title{font-size:14px;line-height:1.5;color:var(--bone);font-weight:300}
   .wire-meta{grid-column:2;font-family:var(--wire);font-size:9px;
     letter-spacing:.12em;text-transform:uppercase;color:var(--ash);margin-top:5px}
+  .wire-pic{width:100%;max-width:150px;aspect-ratio:16/9;object-fit:cover;
+    display:block;margin-bottom:9px;border:1px solid var(--rule)}
   .wire-row.house{border-bottom-color:rgba(232,217,181,.34)}
   .wire-row.house .wire-beat{color:var(--champagne)}
   .wire-row.house .wire-title{color:var(--champagne)}
