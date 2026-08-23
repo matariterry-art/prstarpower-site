@@ -305,6 +305,63 @@ WIRE_CSS = """
 """
 
 
+
+def build_rss(items):
+    """Generate an RSS feed of PR STARPOWER house items.
+
+    This is the plumbing that makes social automation possible. Free services
+    (Buffer, IFTTT, Zapier, dlvr.it) watch an RSS feed and post to social
+    accounts automatically. No API keys needed on our side.
+    """
+    now = datetime.now(timezone.utc)
+    stamp = now.strftime("%a, %d %b %Y %H:%M:%S +0000")
+
+    entries = []
+    for it in items:
+        if not it.get("house"):
+            continue
+        link = it["link"]
+        if not link.startswith("http"):
+            link = "https://prstarpower.com/" + link.lstrip("/")
+        pub = it["when"].strftime("%a, %d %b %Y %H:%M:%S +0000")
+        img = ""
+        if it.get("image"):
+            src = it["image"]
+            if not src.startswith("http"):
+                src = "https://prstarpower.com/" + src.lstrip("/")
+            img = ('\n      <enclosure url="%s" type="image/jpeg" length="0"/>'
+                   % html.escape(src, quote=True))
+        entries.append(
+            "    <item>\n"
+            "      <title>%s</title>\n"
+            "      <link>%s</link>\n"
+            "      <guid isPermaLink=\"true\">%s</guid>\n"
+            "      <pubDate>%s</pubDate>\n"
+            "      <description>%s</description>%s\n"
+            "    </item>"
+            % (html.escape(it["title"]), html.escape(link, quote=True),
+               html.escape(link, quote=True), pub,
+               html.escape(it["title"]), img)
+        )
+
+    feed = (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<rss version="2.0">\n'
+        '  <channel>\n'
+        '    <title>PR STARPOWER Newsroom</title>\n'
+        '    <link>https://prstarpower.com/newsroom.html</link>\n'
+        '    <description>Announcements, releases and analysis from '
+        'PR STARPOWER, a Hollywood representation house.</description>\n'
+        '    <language>en-us</language>\n'
+        '    <lastBuildDate>%s</lastBuildDate>\n'
+        '%s\n'
+        '  </channel>\n'
+        '</rss>\n' % (stamp, "\n".join(entries))
+    )
+    open("feed.xml", "w", encoding="utf-8").write(feed)
+    print("feed.xml written with %d items." % len(entries))
+
+
 def main():
     print("Fetching feeds...")
     items = collect()
@@ -334,6 +391,8 @@ def main():
 
     open(path, "w", encoding="utf-8").write(page)
     print("newsroom.html updated.")
+
+    build_rss(items)
 
 
 if __name__ == "__main__":
