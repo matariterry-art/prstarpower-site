@@ -31,8 +31,8 @@ jobs:
         run: |
           git config user.name  "PR STARPOWER Wire"
           git config user.email "info@prstarpower.com"
-          if [[ -n "$(git status --porcelain newsroom.html)" ]]; then
-            git add newsroom.html
+          if [[ -n "$(git status --porcelain newsroom.html feed.xml)" ]]; then
+            git add newsroom.html feed.xml
             git commit -m "Wire update — $(date -u '+%Y-%m-%d %H:%M UTC')"
             git push
             echo "Wire published."
