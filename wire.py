@@ -192,11 +192,15 @@ def collect():
         print("  %s: %d" % (name, count))
 
     house = load_house()
-    # House items are never crowded out by wire copy.
-    items.sort(key=lambda x: x["when"], reverse=True)
-    merged = house + [i for i in items if not i.get("house")]
+    # House items are never crowded out by wire copy. We reserve their slots
+    # first, then fill the remainder with the newest trade headlines, and only
+    # then sort — otherwise older house items get truncated off the bottom.
+    wire_only = [i for i in items if not i.get("house")]
+    wire_only.sort(key=lambda x: x["when"], reverse=True)
+    room = max(0, MAX_TOTAL - len(house))
+    merged = house + wire_only[:room]
     merged.sort(key=lambda x: x["when"], reverse=True)
-    return merged[:MAX_TOTAL]
+    return merged
 
 
 def relative(when, now):
