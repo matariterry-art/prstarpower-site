@@ -26,6 +26,7 @@
 "mainEntityOfPage":{"@type":"WebPage","@id":"https://prstarpower.com/news-madonna-vma-legacy-signal.html"},
 "articleSection":"The Pulse"}
 </script>
+<link rel="alternate" type="application/rss+xml" title="PR STARPOWER Newsroom" href="https://prstarpower.com/feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Archivo:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -125,6 +126,35 @@
     .bk{grid-template-columns:1fr;gap:6px}
     article p{font-size:16px}
   }
+
+  /* ---- visible mobile tab bar ---- */
+  .tabbar{display:none}
+  @media(max-width:860px){
+    .navtoggle{display:none!important}
+    nav{display:none!important}
+    header{height:auto}
+    .bar{height:58px}
+    .mark{font-size:14px;letter-spacing:.26em}
+    .tabbar{display:block;border-top:1px solid var(--rule);
+      background:rgba(11,10,9,.96);overflow-x:auto;overflow-y:hidden;
+      -webkit-overflow-scrolling:touch;scrollbar-width:none}
+    .tabbar::-webkit-scrollbar{display:none}
+    .tabbar-inner{display:flex;gap:0;padding:0 20px;white-space:nowrap;
+      min-width:max-content}
+    .tabbar a{font-family:var(--wire);font-size:10.5px;letter-spacing:.2em;
+      text-transform:uppercase;color:var(--ash);text-decoration:none;
+      padding:15px 16px;border-bottom:2px solid transparent;
+      transition:color .2s,border-color .2s;-webkit-tap-highlight-color:transparent}
+    .tabbar a:active{color:var(--champagne)}
+    .tabbar a.here{color:var(--champagne);border-bottom-color:var(--brass)}
+    body{padding-top:0}
+  }
+
+  /* MOBILE-PAD: clear the two-row header */
+  @media(max-width:860px){
+    .hero,.top{padding-top:132px!important}
+    .wire-sec{margin-top:0}
+  }
 </style>
 </head>
 <body>
@@ -139,6 +169,16 @@
       <a href="newsroom.html">Newsroom</a>
       <a href="index.html#contact">Contact</a>
     </nav>
+  </div>
+  <div class="tabbar">
+    <div class="tabbar-inner">
+      <a href="index.html#work">Practice</a>
+      <a href="index.html#crisis">Crisis</a>
+      <a href="index.html#clients">Clients</a>
+      <a href="newsroom.html" class="here">Newsroom</a>
+      <a href="freda-payne.html">Press Kit</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
   </div>
 </header>
 <div class="wrap top">

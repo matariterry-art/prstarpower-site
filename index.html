@@ -19,6 +19,7 @@
 "areaServed":["United States","United Kingdom","Europe"],
 "knowsAbout":["Entertainment publicity","Crisis communications","Talent booking","Brand partnerships","Creator economy"]}
 </script>
+<link rel="alternate" type="application/rss+xml" title="PR STARPOWER Newsroom" href="https://prstarpower.com/feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Archivo:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -222,6 +223,35 @@
     .cl-grid{grid-template-columns:1fr;gap:40px}
     .lede{margin-top:38px}
   }
+
+  /* ---- visible mobile tab bar ---- */
+  .tabbar{display:none}
+  @media(max-width:860px){
+    .navtoggle{display:none!important}
+    nav{display:none!important}
+    header{height:auto}
+    .bar{height:58px}
+    .mark{font-size:14px;letter-spacing:.26em}
+    .tabbar{display:block;border-top:1px solid var(--rule);
+      background:rgba(11,10,9,.96);overflow-x:auto;overflow-y:hidden;
+      -webkit-overflow-scrolling:touch;scrollbar-width:none}
+    .tabbar::-webkit-scrollbar{display:none}
+    .tabbar-inner{display:flex;gap:0;padding:0 20px;white-space:nowrap;
+      min-width:max-content}
+    .tabbar a{font-family:var(--wire);font-size:10.5px;letter-spacing:.2em;
+      text-transform:uppercase;color:var(--ash);text-decoration:none;
+      padding:15px 16px;border-bottom:2px solid transparent;
+      transition:color .2s,border-color .2s;-webkit-tap-highlight-color:transparent}
+    .tabbar a:active{color:var(--champagne)}
+    .tabbar a.here{color:var(--champagne);border-bottom-color:var(--brass)}
+    body{padding-top:0}
+  }
+
+  /* MOBILE-PAD: clear the two-row header */
+  @media(max-width:860px){
+    .hero,.top{padding-top:132px!important}
+    .wire-sec{margin-top:0}
+  }
 </style>
 </head>
 <body>
@@ -238,6 +268,16 @@
       <a href="newsroom.html">Newsroom</a>
       <a href="#contact">Contact</a>
     </nav>
+  </div>
+  <div class="tabbar">
+    <div class="tabbar-inner">
+      <a href="index.html#work" class="here">Practice</a>
+      <a href="index.html#crisis">Crisis</a>
+      <a href="index.html#clients">Clients</a>
+      <a href="newsroom.html">Newsroom</a>
+      <a href="freda-payne.html">Press Kit</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
   </div>
 </header>
 
@@ -366,10 +406,17 @@
         <h2>Legacy is a<br><span class="it">living asset</span>.</h2>
       </div>
       <a class="cl-card" href="freda-payne.html">
+        <img src="images/freda-payne-press-photo-2026.jpg" width="640" height="668"
+             loading="lazy" decoding="async"
+             alt="Freda Payne, recording artist and actress, 2026 press portrait"
+             style="width:100%;max-width:210px;aspect-ratio:1/1;object-fit:cover;
+                    object-position:center top;border:1px solid var(--rule);
+                    display:block;margin-bottom:22px;filter:grayscale(.12)">
         <div class="rl">Client — Press Kit</div>
         <div class="nm">Freda Payne</div>
         <div class="ds">Two gold records. Number one in Britain. Six decades on stage — and two
-        magazine covers in 2026. Recording artist, actress, author.</div>
+        magazine covers in 2026. Next date: Catalina Jazz Club, Los Angeles,
+        Saturday 26 September.</div>
         <div class="go">View press kit →</div>
       </a>
     </div>
@@ -380,7 +427,7 @@
   <div class="wrap">
     <div class="label">Representation</div>
     <h2>Selective by design.</h2>
-    <a class="cta" href="mailto:press@prstarpower.com">Begin a conversation</a>
+    <a class="cta" href="mailto:info@prstarpower.com">Begin a conversation</a>
   </div>
 </section>
 
