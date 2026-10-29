@@ -57,7 +57,6 @@ a:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
 .hero h1{
   font-family:var(--hed);font-weight:700;color:#fff;
   font-size:clamp(46px,14vw,74px);line-height:.88;letter-spacing:-1.5px;text-transform:uppercase;
-  
 }
 .hero .sub{
   font-family:var(--hed);font-weight:500;font-size:12px;letter-spacing:.2em;
@@ -104,39 +103,45 @@ a.btn .arw{flex:0 0 auto;font-family:var(--hed);font-weight:700;font-size:19px;o
 .now .what{font-family:var(--hed);font-weight:700;font-size:19px;color:var(--ink);text-transform:uppercase;letter-spacing:.02em;margin-top:4px;line-height:1.15}
 .now .when{font-size:15px;margin-top:3px}
 .now:hover .what{color:var(--signal)}
-.grp{font-family:var(--hed);font-weight:700;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#8A8A8A;margin:10px 0 -2px}
 .share{display:flex;gap:10px;margin-top:22px}
 .share a,.share button{flex:1;font-family:var(--hed);font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;
   border:2px solid var(--ink);background:var(--paper);color:var(--ink);padding:13px 10px;text-align:center;cursor:pointer}
 .share a:hover,.share button:hover{background:var(--ink);color:#fff}
+
+/* ── press & media (bigger type) ─────────────────── */
 .press{margin-top:30px}
-.press h2{font-family:var(--hed);font-weight:700;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#8A8A8A;border-bottom:2px solid var(--ink);padding-bottom:8px;margin-bottom:6px}
+.press h2{font-family:var(--hed);font-weight:700;font-size:16px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);border-bottom:2px solid var(--ink);padding-bottom:8px;margin-bottom:6px}
 .press a.pl{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:13px 2px;border-bottom:1px solid var(--rule)}
 .press a.pl:hover .k{color:var(--signal)}
-.press .k{font-family:var(--hed);font-weight:700;font-size:16px;letter-spacing:.03em;text-transform:uppercase;color:var(--ink);display:block}
-.press .v{font-size:14px;color:#6A6A6A;display:block;margin-top:1px}
-.press .a{font-family:var(--hed);font-weight:700;opacity:.5}
-.press .ct{display:grid;grid-template-columns:1fr;gap:12px;margin-top:16px;background:var(--warm);padding:15px 17px}
-.press .ct b{font-family:var(--hed);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);display:block}
-.press .ct span{font-size:15.5px;color:var(--ink);word-break:break-word}
-.give{margin-top:30px;border:2px solid var(--ink);background:#fff}
-.give .gh{background:var(--ink);color:#fff;padding:14px 18px}
-.give .gh .t{font-family:var(--hed);font-weight:700;font-size:19px;letter-spacing:.04em;text-transform:uppercase}
-.give .gh .s{font-size:14.5px;color:#D8D2C6;margin-top:3px;line-height:1.45}
-.give .row{display:flex;align-items:center;gap:14px;padding:16px 18px}
-.give .m{flex:1;min-width:0}
-.give .m b{font-family:var(--hed);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);display:block}
+.press .k{font-family:var(--hed);font-weight:700;font-size:20px;letter-spacing:.03em;text-transform:uppercase;color:var(--ink);display:block}
+.press .v{font-size:16px;color:#6A6A6A;display:block;margin-top:1px}
+.press .a{font-family:var(--hed);font-weight:700;font-size:20px;opacity:.5}
+
+/* ── team freda + cash app boxes ─────────────────── */
+.team,.give{margin-top:22px;border:2px solid var(--ink);background:#fff}
+.team .gh,.give .gh{background:var(--ink);color:#fff;padding:14px 18px}
+.team .gh .t,.give .gh .t{font-family:var(--hed);font-weight:700;font-size:19px;letter-spacing:.04em;text-transform:uppercase}
+.team .gh .s,.give .gh .s{font-size:14.5px;color:#D8D2C6;margin-top:3px;line-height:1.45}
+.team .row,.give .row{display:flex;align-items:center;gap:14px;padding:15px 18px}
+.team .row + .row{border-top:1px solid var(--rule)}
+.team .m,.give .m{flex:1;min-width:0}
+.team .m b,.give .m b{font-family:var(--hed);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);display:block}
+.team .m span{font-family:var(--hed);font-weight:700;font-size:20px;color:var(--ink);word-break:break-all}
 .give .m span{font-family:var(--hed);font-weight:700;font-size:22px;color:var(--ink);word-break:break-all}
-.give .pay{flex:0 0 auto;font-family:var(--hed);font-weight:700;font-size:14px;letter-spacing:.08em;text-transform:uppercase;background:#00C244;color:#fff;border:0;padding:13px 16px}
+.team .pay,.give .pay{flex:0 0 auto;font-family:var(--hed);font-weight:700;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:#fff;border:0;padding:13px 16px}
+.team .pay{background:var(--ink)}
+.team .row:hover .pay{background:var(--signal)}
+.give .pay{background:#00C244}
 .give .pay:hover{background:var(--ink)}
 .give .fine{font-size:12.5px;color:#7A7A7A;padding:0 18px 15px;line-height:1.45}
-.press .ct a{border-bottom:1px solid var(--rule)}
+
+/* ── footer (bigger type) ────────────────────────── */
 footer{
-  font-family:var(--hed);font-size:11px;letter-spacing:.07em;color:#9A9A9A;
+  font-family:var(--hed);font-size:14px;letter-spacing:.07em;color:#9A9A9A;
   text-align:center;border-top:2px solid var(--rule);margin-top:34px;padding:20px 0 46px;
 }
 footer a{color:#6A6A6A;border-bottom:1px solid var(--rule)}
-footer .row{margin-bottom:9px}
+footer .row{font-size:17px;font-weight:700;margin-bottom:9px}
 </style>
 </head>
 <body>
@@ -171,7 +176,24 @@ footer .row{margin-bottom:9px}
       </span>
       <span class="arw">&rarr;</span>
     </a>
+  </nav>
 
+  <section class="team" aria-labelledby="team-t">
+    <div class="gh"><div class="t" id="team-t">Team Freda &middot; Direct Contact</div>
+      <div class="s">For bookings, media and more</div></div>
+    <a class="row" href="tel:+14242399033"><div class="m"><b>Phone</b><span>424.239.9033</span></div><span class="pay">Call</span></a>
+    <a class="row" href="mailto:gjoelabbott@gmail.com"><div class="m"><b>Email</b><span>Gjoelabbott@gmail.com</span></div><span class="pay">Email</span></a>
+  </section>
+
+  <section class="give" aria-labelledby="give-t">
+    <div class="gh"><div class="t" id="give-t">Freda's Cash App</div>
+      <div class="s">For all who want to support, contribute, donate, purchase or bless Ms. Freda Payne.</div></div>
+    <div class="row"><div class="m"><b>Cash App</b><span>$charceliapayne</span></div>
+      <a class="pay" href="https://cash.app/$charceliapayne" target="_blank" rel="noopener">Send</a></div>
+    <div class="fine">Please send only to $charceliapayne, the Cash App shown on this page.</div>
+  </section>
+
+  <nav class="links">
     <a class="btn" href="https://www.fredapayne.net/" target="_blank" rel="noopener">
       <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm6.9 9h-3a15.3 15.3 0 0 0-1.4-5.7A8 8 0 0 1 18.9 11ZM12 4.2c.8 1.1 1.7 3.3 1.9 6.8h-3.8c.2-3.5 1.1-5.7 1.9-6.8ZM5.1 11a8 8 0 0 1 4.4-5.7A15.3 15.3 0 0 0 8.1 11Zm0 2h3a15.3 15.3 0 0 0 1.4 5.7A8 8 0 0 1 5.1 13Zm6.9 6.8c-.8-1.1-1.7-3.3-1.9-6.8h3.8c-.2 3.5-1.1 5.7-1.9 6.8Zm2.5-1.1a15.3 15.3 0 0 0 1.4-5.7h3a8 8 0 0 1-4.4 5.7Z"/></svg></span>
       <span class="txt">
@@ -232,25 +254,12 @@ footer .row{margin-bottom:9px}
     </a>
   </nav>
 
-  <section class="give" aria-labelledby="give-t">
-    <div class="gh"><div class="t" id="give-t">Support Freda</div>
-      <div class="s">For all who want to support, contribute, donate, purchase or bless Ms. Freda Payne.</div></div>
-    <div class="row"><div class="m"><b>Cash App</b><span>$charceliapayne</span></div>
-      <a class="pay" href="https://cash.app/$charceliapayne" target="_blank" rel="noopener">Send</a></div>
-    <div class="fine">Please send only to $charceliapayne, the Cash App shown on this page.</div>
-  </section>
-
   <section class="press" aria-labelledby="press-t">
     <h2 id="press-t">Press &amp; Media</h2>
     <a class="pl" href="https://prstarpower.com/freda-payne.html" target="_blank" rel="noopener"><span><span class="k">Official media kit</span><span class="v">Bio, career highlights and press materials &mdash; PR STARPOWER</span></span><span class="a">&rarr;</span></a>
     <a class="pl" href="https://newswirehollywood.com/freda-presskit.html" target="_blank" rel="noopener"><span><span class="k">Fast facts &amp; press photos</span><span class="v">High-resolution photos and quick facts for editors</span></span><span class="a">&rarr;</span></a>
     <a class="pl" href="https://newswirehollywood.com/freda-payne-catalina.html" target="_blank" rel="noopener"><span><span class="k">Latest coverage</span><span class="v">Sold-out night at Catalina Jazz Club, Hollywood</span></span><span class="a">&rarr;</span></a>
     <a class="pl" href="https://prstarpower.com/news-freda-payne-catalina-september.html" target="_blank" rel="noopener"><span><span class="k">Press release</span><span class="v">From the PR STARPOWER newsroom</span></span><span class="a">&rarr;</span></a>
-    <div class="ct">
-      <div><b>Team Freda &middot; Direct contact</b><span>For bookings, media and more</span></div>
-      <div><b>Phone</b><span><a href="tel:+14242399033">424.239.9033</a></span></div>
-      <div><b>Email</b><span><a href="mailto:gjoelabbott@gmail.com">Gjoelabbott@gmail.com</a></span></div>
-    </div>
   </section>
 
   <div class="share">
