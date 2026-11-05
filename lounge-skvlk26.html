@@ -235,6 +235,12 @@ a{color:var(--accent)}
         <legend>About you</legend>
         <label for="f-name">Your name<input id="f-name" autocomplete="name"></label>
         <div class="row">
+          <label for="f-team">Which team are you with?
+            <select id="f-team"><option value="">Choose one</option><option>Team Terry</option><option>Tati</option><option>Other</option></select>
+          </label>
+          <label for="f-ref">Who referred you? <span class="hint">Name or @handle</span><input id="f-ref" autocapitalize="words"></label>
+        </div>
+        <div class="row">
           <label for="f-phone">Mobile number<input id="f-phone" type="tel" autocomplete="tel" placeholder="So we can text you"></label>
           <label for="f-email">Email <span class="hint">Optional</span><input id="f-email" type="email" autocomplete="email"></label>
         </div>
@@ -310,7 +316,7 @@ a{color:var(--accent)}
     if(!document.getElementById('f-agree').checked)return show('Please check the box to confirm you are 18+ and agree to the release.');
     var data={
       _subject:'VIP Creator Lounge: '+v('f-name'),_template:'table',_captcha:'false',
-      Name:v('f-name'),Mobile:v('f-phone'),Email:v('f-email')||'-',Instagram:v('f-ig')||'-',TikTok:v('f-tt')||'-',
+      Name:v('f-name'),Team:v('f-team')||'-','Referred by':v('f-ref')||'-',Mobile:v('f-phone'),Email:v('f-email')||'-',Instagram:v('f-ig')||'-',TikTok:v('f-tt')||'-',
       Followers:v('f-reach')||'-',Vibe:v('f-role')||'-',
       'Dolls Kill picks':v('f-picks')||'(will text picks)',Sizes:v('f-sizes')||'-',
       'Newswire live':c('f-live'),'Meet and greet':c('f-mg'),'Roster opt-in':c('f-roster'),
@@ -326,7 +332,8 @@ a{color:var(--accent)}
       throw new Error(x.j.message||'not sent')})
     .catch(function(){clearTimeout(t);btn.disabled=false;btn.textContent='Try again';
       var sum=Object.keys(data).filter(function(k){return k[0]!=='_'}).map(function(k){return k+': '+data[k]}).join('\n');
-      show('We couldn\'t send that just now. Tap <b>Try again</b>, or text your details to <b>646-315-2942</b>: <a href="sms:+16463152942?&body='+encodeURIComponent('VIP Lounge registration\n'+sum)+'">tap here to text them</a>.');
+      var sms='sms:+16463152942?&body='+encodeURIComponent('VIP Creator Lounge registration\n'+sum);
+      show('<div style="display:grid;gap:12px">Our sign-up line is busy. Send it by text instead, and you\'re registered: <a class="cta" style="text-align:center" href="'+sms+'">Text my registration</a><span style="font-weight:400">It opens your messages with everything filled in. Just hit send. Number: 646-315-2942</span></div>');
     });
   });
 })();
