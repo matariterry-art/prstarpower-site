@@ -100,6 +100,15 @@ footer{border-top:1px solid var(--rule);padding-top:22px;margin-top:30px;color:v
 footer b{color:var(--ink)}
 a{color:var(--accent)}
 @media (prefers-reduced-motion:no-preference){.heroimg img{animation:zoom 14s ease-out both}@keyframes zoom{from{transform:scale(1.06)}to{transform:scale(1)}}}
+.hosts{display:grid;gap:12px;margin-top:16px}
+.host{background:var(--panel);border:1px solid var(--rule);border-radius:14px;padding:16px 18px;display:grid;gap:4px}
+.host .nm{font-family:var(--disp);font-size:22px;font-weight:800;line-height:1.15}
+.host .nm a{color:var(--ink);text-decoration:none}
+.host .ttl{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.host p{margin:6px 0 0;color:var(--muted);font-size:15px}
+.host p b{color:var(--ink)}
+.thanks{margin:14px 0 0;color:var(--muted);font-size:14px}
+.thanks a{color:var(--muted)}
 </style>
 
 </head>
@@ -124,6 +133,16 @@ a{color:var(--accent)}
     <div><dt>Your access</dt><dd>VIP lounges + creator check-in</dd></div>
   </dl>
   <a class="cta" href="#register">Register now</a>
+
+  <section aria-labelledby="hosts">
+    <h2 id="hosts">Your hosts</h2>
+    <p>From your first text to your final post, you're in the care of the PR STARPOWER team.</p>
+    <div class="hosts">
+      <div class="host"><span class="ttl">Head of PR STARPOWER · Lounge Producer</span><span class="nm">Terry Matari Bryant</span><p>Your host for the evening. Terry curated this year's creators and produces the VIP Creator Lounge experience.</p></div>
+      <div class="host"><span class="ttl">Creator Lounge Director</span><span class="nm"><a href="https://www.instagram.com/okitsmetatiii/" target="_blank" rel="noopener">Tati · @okitsmetatiii</a></span><p>Tati runs the lounge and keeps our squad together, from arrival to your final post. Questions before the event or on the night? Text Tati at <b>(910) 297-2223</b>.</p></div>
+    </div>
+    <p class="thanks">Special thanks to Pary al Zahawi (<a href="https://www.instagram.com/only1pary/" target="_blank" rel="noopener">@only1pary</a>) for bringing members of her circle to the lounge.</p>
+  </section>
 
   <section aria-labelledby="exp">
     <h2 id="exp">The VIP experience</h2>
@@ -236,7 +255,7 @@ a{color:var(--accent)}
         <label for="f-name">Your name<input id="f-name" autocomplete="name"></label>
         <div class="row">
           <label for="f-team">Which team are you with?
-            <select id="f-team"><option value="">Choose one</option><option>Team Terry</option><option>Tati</option><option>Other</option></select>
+            <select id="f-team"><option value="">Choose one</option><option>Team Terry</option><option>Team Tati</option><option>Team Pary</option><option>Other</option></select>
           </label>
           <label for="f-ref">Who referred you? <span class="hint">Name or @handle</span><input id="f-ref" autocapitalize="words"></label>
         </div>
@@ -292,7 +311,7 @@ a{color:var(--accent)}
 
   <footer>
     <div><b>PR STARPOWER</b> · VIP Creator Lounge at SKVLK FEST</div>
-    <div>Questions: text the PR STARPOWER team at <b>646-315-2942</b> or email <b>info@prstarpower.com</b></div>
+    <div>Lounge questions: text Tati at <b>(910) 297-2223</b> · Registrations: <b>646-315-2942</b> · <b>info@prstarpower.com</b></div>
   </footer>
 </div>
 
