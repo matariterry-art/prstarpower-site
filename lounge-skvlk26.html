@@ -322,19 +322,16 @@ a{color:var(--accent)}
       'Newswire live':c('f-live'),'Meet and greet':c('f-mg'),'Roster opt-in':c('f-roster'),
       'Release (18+, agreed)':'Yes, '+new Date().toLocaleString('en-US')
     };
-    btn.disabled=true;btn.textContent='Sending…';
-    var ctrl=('AbortController' in window)?new AbortController():null;
-    var t=setTimeout(function(){if(ctrl)ctrl.abort()},20000);
-    fetch('https://formsubmit.co/ajax/matariterry@gmail.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data),signal:ctrl?ctrl.signal:undefined})
-    .then(function(r){return r.json().catch(function(){return {}}).then(function(j){return {ok:r.ok,j:j}})})
-    .then(function(x){clearTimeout(t);
-      if(x.ok&&String(x.j.success)!=='false'){form.hidden=true;document.getElementById('done').hidden=false;document.getElementById('done').scrollIntoView({behavior:'smooth',block:'center'});return}
-      throw new Error(x.j.message||'not sent')})
-    .catch(function(){clearTimeout(t);btn.disabled=false;btn.textContent='Try again';
-      var sum=Object.keys(data).filter(function(k){return k[0]!=='_'}).map(function(k){return k+': '+data[k]}).join('\n');
-      var sms='sms:+16463152942?&body='+encodeURIComponent('VIP Creator Lounge registration\n'+sum);
-      show('<div style="display:grid;gap:12px">Our sign-up line is busy. Send it by text instead, and you\'re registered: <a class="cta" style="text-align:center" href="'+sms+'">Text my registration</a><span style="font-weight:400">It opens your messages with everything filled in. Just hit send. Number: 646-315-2942</span></div>');
-    });
+    var sum=Object.keys(data).filter(function(k){return k[0]!=='_'}).map(function(k){return k+': '+data[k]}).join('\n');
+    var body='VIP Creator Lounge registration\n'+sum;
+    var sms='sms:+16463152942?&body='+encodeURIComponent(body);
+    try{fetch('https://formsubmit.co/ajax/matariterry@gmail.com',{method:'POST',keepalive:true,headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)}).catch(function(){})}catch(x){}
+    form.hidden=true;
+    var d=document.getElementById('done');
+    d.innerHTML='<div style="display:grid;gap:12px"><span>Last step: <b>hit Send</b> on the text that just opened, and you\'re registered. 🎉</span><a class="cta" style="text-align:center" href="'+sms+'">Didn\'t open? Tap to text my registration</a><span style="font-weight:400">Or text it yourself to <b>646-315-2942</b>. Your details:</span><pre id="sum" style="white-space:pre-wrap;font:14px var(--mono);background:var(--bg);border:1px solid var(--rule);border-radius:10px;padding:12px;margin:0;user-select:all"></pre></div>';
+    d.hidden=false;document.getElementById('sum').textContent=body;
+    d.scrollIntoView({behavior:'smooth',block:'center'});
+    setTimeout(function(){location.href=sms},400);
   });
 })();
 </script>
