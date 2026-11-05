@@ -152,7 +152,7 @@ a{color:var(--accent)}
   <section aria-labelledby="how">
     <h2 id="how">How it works</h2>
     <ol class="steps">
-      <li><div><b>Register below.</b><p>Your handles, your two Dolls Kill picks with sizes, a quick photo so we know who you are, and your signature on the release. It takes about 5 minutes.</p></div></li>
+      <li><div><b>Register below.</b><p>Your name, number, handle and Dolls Kill picks. It takes about 2 minutes.</p></div></li>
       <li><div><b>Get your confirmation.</b><p>We'll text you about getting your pieces, your VIP check-in time, the address, and the headliners.</p></div></li>
       <li><div><b>Start the party early.</b><p>Get-ready content, the drive up, the arrival. The excitement starts before you get there.</p></div></li>
       <li><div><b>Live it up.</b><p>Check in with the PR STARPOWER team, enjoy the festival, come back to the VIP lounge, look amazing and go live.</p></div></li>
@@ -225,101 +225,58 @@ a{color:var(--accent)}
 
   <section id="register" aria-labelledby="reg">
     <h2 id="reg">Register</h2>
-    <p>It takes about 5 minutes. Have your two Dolls Kill links ready.</p>
+    <p>About 2 minutes. Links, a wishlist or just item names are fine for your Dolls Kill picks.</p>
 
-    <div id="done" class="msg ok" hidden>You're in. Watch for a text from the PR STARPOWER team with your check-in time, the address and the lineup.</div>
+    <div id="done" class="msg ok" hidden>You're in! 🎉 Watch for a text from the PR STARPOWER team with your check-in time, the address and the lineup.</div>
 
-    <form id="lounge-form" action="https://formsubmit.co/matariterry@gmail.com" method="POST" enctype="multipart/form-data">
-      <input type="hidden" name="_subject" value="VIP Creator Lounge registration">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_captcha" value="true">
-      <input type="hidden" name="_next" id="next" value="">
-      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-
+    <form id="lounge-form" novalidate>
+      <input type="text" name="_honey" id="f-honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
       <fieldset>
         <legend>About you</legend>
+        <label for="f-name">Your name<input id="f-name" autocomplete="name"></label>
         <div class="row">
-          <label for="f-legal">Full legal name<input id="f-legal" name="Legal name" required autocomplete="name"></label>
-          <label for="f-creator">Creator name<input id="f-creator" name="Creator name"></label>
+          <label for="f-phone">Mobile number<input id="f-phone" type="tel" autocomplete="tel" placeholder="So we can text you"></label>
+          <label for="f-email">Email <span class="hint">Optional</span><input id="f-email" type="email" autocomplete="email"></label>
         </div>
         <div class="row">
-          <label for="f-email">Email<input id="f-email" name="email" type="email" required autocomplete="email"></label>
-          <label for="f-phone">Mobile (for your check-in text)<input id="f-phone" name="Mobile" type="tel" required autocomplete="tel"></label>
+          <label for="f-ig">Instagram<input id="f-ig" placeholder="@yourhandle" autocapitalize="off"></label>
+          <label for="f-tt">TikTok <span class="hint">Optional</span><input id="f-tt" placeholder="@yourhandle" autocapitalize="off"></label>
         </div>
         <div class="row">
-          <label for="f-dob">Date of birth<input id="f-dob" name="Date of birth" type="date" required></label>
-          <label for="f-team">Who invited you?
-            <select id="f-team" name="Invited by" required>
-              <option value="">Choose one</option>
-              <option>Team Terry</option>
-              <option>Tati</option>
-              <option>Other PR STARPOWER team</option>
-            </select>
+          <label for="f-reach">Followers <span class="hint">Optional</span><input id="f-reach" inputmode="numeric" placeholder="e.g. 250K"></label>
+          <label for="f-role">Your vibe <span class="hint">Optional</span>
+            <select id="f-role"><option value="">Choose one</option><option>Style Squad</option><option>Correspondent</option><option>Live Team</option></select>
           </label>
         </div>
-        <label for="f-photo">A recent photo of you <span class="hint">A selfie is fine. It just helps us know who you are. JPG or PNG, under 5 MB.</span><input id="f-photo" name="Photo" type="file" accept="image/jpeg,image/png"></label>
-      </fieldset>
-
-      <fieldset>
-        <legend>Your platforms</legend>
-        <div class="row">
-          <label for="f-ig">Instagram<input id="f-ig" name="Instagram" placeholder="@yourhandle"></label>
-          <label for="f-tt">TikTok<input id="f-tt" name="TikTok" placeholder="@yourhandle"></label>
-        </div>
-        <div class="row">
-          <label for="f-yt">YouTube, Twitch or other<input id="f-yt" name="Other platform"></label>
-          <label for="f-reach">Followers on your biggest platform<input id="f-reach" name="Followers (biggest platform)" inputmode="numeric" required></label>
-        </div>
-        <label for="f-role">Your vibe
-          <select id="f-role" name="Preferred role" required>
-            <option value="">Choose one</option>
-            <option>Style Squad</option>
-            <option>Correspondent</option>
-            <option>Live Team</option>
-          </select>
-        </label>
       </fieldset>
 
       <fieldset>
         <legend>Your Dolls Kill picks</legend>
-        <div class="row">
-          <label for="f-i1">Piece 1 link<input id="f-i1" name="Item 1 link" type="url" required placeholder="https://www.dollskill.com/..."></label>
-          <label for="f-s1">Piece 1 size<input id="f-s1" name="Item 1 size" required></label>
-        </div>
-        <div class="row">
-          <label for="f-i2">Piece 2 link<input id="f-i2" name="Item 2 link" type="url" required placeholder="https://www.dollskill.com/..."></label>
-          <label for="f-s2">Piece 2 size<input id="f-s2" name="Item 2 size" required></label>
-        </div>
+        <label for="f-picks">What you'd like <span class="hint">Paste links, a Dolls Kill wishlist link, or just type the item names. Anything works. You can also text us your picks later.</span><textarea id="f-picks" rows="4" style="font:inherit;font-size:16px;color:var(--ink);background:var(--bg);border:1px solid var(--rule);border-radius:10px;padding:11px 12px;width:100%;resize:vertical"></textarea></label>
+        <label for="f-sizes">Your sizes <span class="hint">Optional</span><input id="f-sizes" placeholder="e.g. top M, bottoms 28, shoes 8"></label>
       </fieldset>
 
       <fieldset>
-        <legend>Opportunities</legend>
-        <label class="check" for="f-live"><input id="f-live" name="Newswire Hollywood live" type="checkbox" value="Yes"><span>I'd love to be considered for the Newswire Hollywood live coverage.</span></label>
-        <label class="check" for="f-mg"><input id="f-mg" name="Meet and greet" type="checkbox" value="Yes"><span>Count me in for the VIP meet-and-greet moments.</span></label>
-        <label class="check" for="f-roster"><input id="f-roster" name="PR STARPOWER roster" type="checkbox" value="Yes"><span>Add me to the PR STARPOWER creator roster for future paid brand campaigns and VIP event invitations.</span></label>
-        <label for="f-kit">Media kit or rate card link <span class="hint">Optional</span><input id="f-kit" name="Media kit" type="url"></label>
+        <legend>Extras (optional)</legend>
+        <label class="check" for="f-live"><input id="f-live" type="checkbox"><span>I'd love to be on the Newswire Hollywood live coverage.</span></label>
+        <label class="check" for="f-mg"><input id="f-mg" type="checkbox"><span>Count me in for the VIP meet-and-greet moments.</span></label>
+        <label class="check" for="f-roster"><input id="f-roster" type="checkbox"><span>Add me to the PR STARPOWER creator roster for future paid brand deals and VIP invites.</span></label>
       </fieldset>
 
       <fieldset>
         <legend>Release</legend>
-        <div class="release" tabindex="0" aria-label="Release text">
-          <h4>Creator Participation and Likeness Release</h4>
-          <ol>
+        <details class="release"><summary style="cursor:pointer;color:var(--ink);font-weight:600">Read the Creator Participation and Likeness Release</summary>
+          <ol style="margin-top:10px">
             <li><b>Permission to use your likeness.</b> I give PR STARPOWER, SKVLK FEST, Newswire Hollywood and the event sponsor Dolls Kill permission to photograph, film and record me at SKVLK FEST on November 7, 2026. They may use my name, image, likeness and voice, and the event content I post, in any media, to cover and promote the event and its sponsor, with no payment to me.</li>
             <li><b>Gifted product.</b> The Dolls Kill pieces are a gift. Wearing them is my choice. When I post them, I'll tag @dollskill and disclose the gift with #gifted or "Gifted by @dollskill," as the FTC requires.</li>
-            <li><b>Conduct.</b> I'll follow the VIP etiquette, keep the address private, and follow staff and security directions. I understand I can be asked to leave if I don't.</li>
-            <li><b>No guarantees.</b> I understand that meet-and-greets, live segments and media features depend on the night and aren't guaranteed.</li>
-            <li><b>Age and identity.</b> I confirm I'm 18 or older and that the information I've given is true.</li>
+            <li><b>Conduct.</b> I'll follow the VIP etiquette, keep the address private, and follow staff and security directions.</li>
+            <li><b>No guarantees.</b> Meet-and-greets, live segments and media features depend on the night.</li>
+            <li><b>Age.</b> I'm 18 or older, and the information I've given is true.</li>
             <li><b>Responsibility.</b> I attend at my own risk and am responsible for my own belongings and conduct.</li>
             <li><b>Privacy.</b> PR STARPOWER uses my details to run this event and, if I opt in, for future opportunities. It never sells them.</li>
           </ol>
-        </div>
-        <label class="check" for="f-18"><input id="f-18" name="Confirms 18+" type="checkbox" value="Yes" required><span>I'm 18 or older and will bring a photo ID.</span></label>
-        <label class="check" for="f-agree"><input id="f-agree" name="Agrees to release" type="checkbox" value="Yes" required><span>I've read and agree to the Creator Participation and Likeness Release and the VIP etiquette.</span></label>
-        <div class="row">
-          <label for="f-sig">Type your full legal name to sign<input id="f-sig" name="Signature (typed)" required></label>
-          <label for="f-date">Date<input id="f-date" name="Signed date" readonly></label>
-        </div>
+        </details>
+        <label class="check" for="f-agree"><input id="f-agree" type="checkbox"><span><b>I'm 18 or older and I agree to the release.</b> Checking this box with my name above is my signature.</span></label>
       </fieldset>
 
       <div id="err" class="msg warn" hidden></div>
@@ -335,30 +292,42 @@ a{color:var(--accent)}
 
 <script>
 (function(){
-  document.getElementById('f-date').value=new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
-  function sel(el){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r)}
-  function copyText(t,btn,el){
-    var done=function(){var o=btn.textContent;btn.textContent='Copied';setTimeout(function(){btn.textContent=o},1400)};
-    try{navigator.clipboard.writeText(t).then(done,function(){sel(el||btn)})}catch(e){sel(el||btn)}
-  }
+  function sel(el){var r=document.createRange();r.selectNodeContents(el);var x=getSelection();x.removeAllRanges();x.addRange(r)}
+  function copyText(t,btn,el){var done=function(){var o=btn.textContent;btn.textContent='Copied';setTimeout(function(){btn.textContent=o},1400)};try{navigator.clipboard.writeText(t).then(done,function(){sel(el||btn)})}catch(e){sel(el||btn)}}
   document.querySelectorAll('.tag').forEach(function(b){b.addEventListener('click',function(){copyText(b.dataset.copy,b)})});
   document.querySelectorAll('.cap .copy').forEach(function(b){var p=b.parentNode.querySelector('p');b.addEventListener('click',function(){copyText(p.textContent,b,p)})});
 
-  var live=/prstarpower\.com$/.test(location.hostname);
-  var form=document.getElementById('lounge-form');
-  if(live){document.getElementById('next').value=location.origin+location.pathname+'?registered=1#register'}
-  if(/registered=1/.test(location.search)){document.getElementById('done').hidden=false;form.hidden=true}
-
+  var form=document.getElementById('lounge-form'),err=document.getElementById('err'),btn=document.getElementById('submit');
+  function v(id){return (document.getElementById(id).value||'').trim()}
+  function c(id){return document.getElementById(id).checked?'Yes':'No'}
+  function show(html){err.innerHTML=html;err.hidden=false;err.scrollIntoView({behavior:'smooth',block:'center'})}
   form.addEventListener('submit',function(e){
-    var err=document.getElementById('err');err.hidden=true;
-    function stop(m){e.preventDefault();err.textContent=m;err.hidden=false}
-    var dob=new Date(document.getElementById('f-dob').value);
-    if(!isNaN(dob)&&dob>new Date(2008,10,7))return stop('The Creator Lounge is 18 and over. Check your date of birth.');
-    if(document.getElementById('f-sig').value.trim().toLowerCase()!==document.getElementById('f-legal').value.trim().toLowerCase())return stop('Your typed signature must match your full legal name.');
-    var f=document.getElementById('f-photo').files[0];
-    if(f&&f.size>5*1024*1024)return stop('Your photo is over 5 MB. Choose a smaller one.');
-    if(!live)return stop('Preview only. On prstarpower.com this sends your registration to the PR STARPOWER team.');
-    var b=document.getElementById('submit');b.disabled=true;b.textContent='Sending…';
+    e.preventDefault();err.hidden=true;
+    if(v('f-honey'))return;
+    if(!v('f-name'))return show('Please add your name.');
+    if(!v('f-phone'))return show('Please add your mobile number so we can text you.');
+    if(!v('f-ig')&&!v('f-tt'))return show('Please add your Instagram or TikTok.');
+    if(!document.getElementById('f-agree').checked)return show('Please check the box to confirm you are 18+ and agree to the release.');
+    var data={
+      _subject:'VIP Creator Lounge: '+v('f-name'),_template:'table',_captcha:'false',
+      Name:v('f-name'),Mobile:v('f-phone'),Email:v('f-email')||'-',Instagram:v('f-ig')||'-',TikTok:v('f-tt')||'-',
+      Followers:v('f-reach')||'-',Vibe:v('f-role')||'-',
+      'Dolls Kill picks':v('f-picks')||'(will text picks)',Sizes:v('f-sizes')||'-',
+      'Newswire live':c('f-live'),'Meet and greet':c('f-mg'),'Roster opt-in':c('f-roster'),
+      'Release (18+, agreed)':'Yes, '+new Date().toLocaleString('en-US')
+    };
+    btn.disabled=true;btn.textContent='Sending…';
+    var ctrl=('AbortController' in window)?new AbortController():null;
+    var t=setTimeout(function(){if(ctrl)ctrl.abort()},20000);
+    fetch('https://formsubmit.co/ajax/matariterry@gmail.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data),signal:ctrl?ctrl.signal:undefined})
+    .then(function(r){return r.json().catch(function(){return {}}).then(function(j){return {ok:r.ok,j:j}})})
+    .then(function(x){clearTimeout(t);
+      if(x.ok&&String(x.j.success)!=='false'){form.hidden=true;document.getElementById('done').hidden=false;document.getElementById('done').scrollIntoView({behavior:'smooth',block:'center'});return}
+      throw new Error(x.j.message||'not sent')})
+    .catch(function(){clearTimeout(t);btn.disabled=false;btn.textContent='Try again';
+      var sum=Object.keys(data).filter(function(k){return k[0]!=='_'}).map(function(k){return k+': '+data[k]}).join('\n');
+      show('We couldn\'t send that just now. Tap <b>Try again</b>, or text your details to <b>646-315-2942</b>: <a href="sms:+16463152942?&body='+encodeURIComponent('VIP Lounge registration\n'+sum)+'">tap here to text them</a>.');
+    });
   });
 })();
 </script>
