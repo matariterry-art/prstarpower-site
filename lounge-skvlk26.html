@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>SKVLK Creator Lounge</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,600;0,6..96,800;1,6..96,600&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#120B10; --panel:#1C1219; --ink:#F3E9EE; --muted:#B49FAB; --rule:#3A2733;
+  --accent:#F0457A; --gold:#D9A857; --ok:#6FD3A0; --onaccent:#1A0710;
+  --disp:'Bodoni Moda',Georgia,'Times New Roman',serif;
+  --body:'Source Sans 3',system-ui,-apple-system,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{background:var(--bg)}
+body{color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;margin:0}
+img{max-width:100%;display:block}
+[hidden]{display:none!important}
+.wrap{max-width:760px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 72px}
+.bar{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;padding-block:18px 12px}
+.bar b{font-family:var(--disp);font-size:20px;letter-spacing:.08em;text-transform:uppercase}
+.bar span{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.heroimg{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:16/10;max-width:100%;background:var(--panel)}
+.heroimg img{width:100%;height:100%;object-fit:cover}
+.heroimg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,11,16,0) 35%,rgba(18,11,16,.92) 100%)}
+.herotext{position:absolute;left:0;right:0;bottom:0;padding:22px;z-index:1}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin:0}
+h1{font-family:var(--disp);font-weight:800;font-size:clamp(34px,7.5vw,60px);line-height:1.02;margin:8px 0 0;text-wrap:balance}
+h1 em{font-style:italic;font-weight:600;color:var(--accent)}
+h2{font-family:var(--disp);font-weight:800;font-size:clamp(24px,4.5vw,32px);line-height:1.15;margin:0 0 12px;text-wrap:balance}
+h3{font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin:0 0 6px;color:var(--gold)}
+p{margin:0 0 14px}
+.lede{font-size:20px;line-height:1.5;margin:22px 0 18px;max-width:62ch}
+.lede b{color:var(--accent)}
+.pass{border:1px solid var(--gold);border-radius:14px;padding:16px 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px 22px;background:linear-gradient(135deg,rgba(217,168,87,.12),rgba(240,69,122,.06));margin:0 0 18px}
+.pass div{min-width:0}
+.pass dt{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.pass dd{margin:2px 0 0;font-weight:700;font-size:16px}
+.cta{display:inline-block;background:var(--accent);color:var(--onaccent);font-weight:700;text-decoration:none;padding:13px 24px;border-radius:999px;font-size:16px}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+section{border-top:1px solid var(--rule);padding-block:32px;margin-top:30px}
+.gallery{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+.gallery figure{margin:0;border-radius:12px;overflow:hidden;position:relative;background:var(--panel);min-width:0}
+.gallery img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
+.gallery figcaption{position:absolute;left:10px;bottom:8px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;background:rgba(18,11,16,.75);padding:3px 8px;border-radius:999px}
+.g1{grid-column:span 4}.g2{grid-column:span 2;grid-row:span 2}.g2 img{aspect-ratio:auto;height:100%}
+.g3,.g4{grid-column:span 2}.g5{grid-column:span 3}.g6{grid-column:span 3}
+@media (max-width:560px){.gallery{grid-template-columns:1fr 1fr}.g1,.g5,.g6{grid-column:span 2}.g2,.g3,.g4{grid-column:span 1;grid-row:auto}.g2 img{aspect-ratio:3/4}}
+.perks{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:16px}
+.perk{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:14px 16px}
+.perk p{margin:0;color:var(--muted);font-size:15px}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:16px;counter-reset:s}
+.steps li{display:grid;grid-template-columns:44px 1fr;gap:14px;counter-increment:s}
+.steps li::before{content:counter(s,decimal-leading-zero);font-family:var(--mono);font-size:14px;color:var(--accent);border:1px solid var(--rule);border-radius:10px;height:44px;display:grid;place-items:center}
+.steps li div{min-width:0}
+.steps p{margin:0;color:var(--muted)}
+.roles{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.role{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:16px}
+.role p{margin:0;color:var(--muted);font-size:15px}
+ul.tight{margin:0;padding-left:20px;display:grid;gap:8px}
+ul.tight li::marker{color:var(--accent)}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 16px}
+.tag{font-family:var(--mono);font-size:14px;background:var(--panel);border:1px solid var(--rule);border-radius:999px;padding:6px 12px;cursor:pointer;color:var(--ink)}
+.tag.must{border-color:var(--gold)}
+.tag:hover{border-color:var(--accent)}
+.cap{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:14px 16px;margin:0 0 12px}
+.cap p{margin:6px 0 10px;font-size:16px}
+.cap small{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.copy{font:600 13px var(--body);background:transparent;color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:5px 12px;cursor:pointer}
+.note{border-left:3px solid var(--gold);padding:4px 0 4px 14px;color:var(--muted);font-size:15px;margin-top:6px}
+.note b{color:var(--ink)}
+.press{display:flex;flex-wrap:wrap;gap:8px 18px;font-family:var(--disp);font-size:20px;font-weight:600;margin-top:6px}
+.press span{color:var(--muted);font-family:var(--body);font-size:15px;font-weight:400;align-self:center}
+form{display:grid;gap:22px}
+fieldset{border:1px solid var(--rule);border-radius:14px;padding:18px;margin:0;display:grid;gap:14px;min-width:0}
+legend{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);padding:0 8px}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+label{display:grid;gap:5px;font-size:15px;font-weight:600;min-width:0}
+label .hint{font-weight:400;color:var(--muted);font-size:13px}
+input,select{font:inherit;font-size:16px;color:var(--ink);background:var(--bg);border:1px solid var(--rule);border-radius:10px;padding:11px 12px;width:100%;min-width:0}
+input[type=file]{padding:9px}
+.check{display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start;font-weight:400}
+.check input{width:20px;height:20px;margin-top:3px;accent-color:var(--accent)}
+.release{background:var(--bg);border:1px solid var(--rule);border-radius:10px;padding:14px 16px;max-height:300px;overflow:auto;font-size:14px;line-height:1.55;color:var(--muted)}
+.release h4{margin:0 0 8px;color:var(--ink);font-size:15px}
+.release ol{padding-left:20px;margin:0;display:grid;gap:8px}
+button[type=submit]{font:700 17px var(--body);background:var(--accent);color:var(--onaccent);border:0;border-radius:999px;padding:15px 26px;cursor:pointer;justify-self:start}
+button[disabled]{opacity:.6;cursor:wait}
+.msg{border-radius:12px;padding:16px 18px;font-weight:600}
+.msg.ok{background:rgba(111,211,160,.12);border:1px solid var(--ok)}
+.msg.warn{background:rgba(240,69,122,.10);border:1px solid var(--accent)}
+.hp{position:absolute;left:-9999px}
+footer{border-top:1px solid var(--rule);padding-top:22px;margin-top:30px;color:var(--muted);font-size:14px;display:grid;gap:6px}
+footer b{color:var(--ink)}
+a{color:var(--accent)}
+@media (prefers-reduced-motion:no-preference){.heroimg img{animation:zoom 14s ease-out both}@keyframes zoom{from{transform:scale(1.06)}to{transform:scale(1)}}}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <div class="bar"><b>PR STARPOWER</b><span>VIP · Invitation only</span></div>
+
+  <div class="heroimg">
+    <img src="images/lounge26/hero.jpg" alt="The SKVLK FEST main stage lit up at sunset, with white and red VIP lounge seating in front">
+    <div class="herotext">
+      <p class="eyebrow">You've been selected</p>
+      <h1>Welcome to the SKVLK FEST <em>VIP Creator Lounge</em></h1>
+    </div>
+  </div>
+
+  <p class="lede">Congratulations. <b>Team Terry hand-picked you</b> for the VIP Creator Lounge at SKVLK FEST, a private mansion party where Hollywood, music and creator culture meet. Past years brought out Chris Brown, GloRilla, Tyga, Leon Thomas and Leonardo DiCaprio. This year is bigger. Your look is on us, courtesy of our sponsor <b>Dolls Kill</b>. You bring the energy.</p>
+
+  <dl class="pass">
+    <div><dt>Event</dt><dd>SKVLK FEST 2026</dd></div>
+    <div><dt>Date</dt><dd>Saturday, Nov 7</dd></div>
+    <div><dt>Where</dt><dd>Private estate, sent by text</dd></div>
+    <div><dt>Your access</dt><dd>VIP lounges + creator check-in</dd></div>
+  </dl>
+  <a class="cta" href="#register">Register now</a>
+
+  <section aria-labelledby="exp">
+    <h2 id="exp">The VIP experience</h2>
+    <p>Red carpet entrance, private lounges, mountain-view terraces and a front-row view of the main stage. The PR STARPOWER team will be in the lounge all night to take care of you.</p>
+    <div class="gallery">
+      <figure class="g1"><img src="images/lounge26/lawn.jpg" alt="Black velvet lounge seating on red carpet facing the stage" loading="lazy"><figcaption>VIP lounge</figcaption></figure>
+      <figure class="g2"><img src="images/lounge26/entry.jpg" alt="Red carpet stairs between white lattice screens" loading="lazy"><figcaption>Red carpet entry</figcaption></figure>
+      <figure class="g3"><img src="images/lounge26/stage.jpg" alt="White tufted sofas with skeleton pillows in front of the stage riser" loading="lazy"><figcaption>Stage-side seating</figcaption></figure>
+      <figure class="g4"><img src="images/lounge26/terrace.jpg" alt="Covered red-carpet terrace lounge with velvet seating and bar stools" loading="lazy"><figcaption>Terrace lounge</figcaption></figure>
+      <figure class="g5"><img src="images/lounge26/view.jpg" alt="Velvet sofas and gold tables on a balcony overlooking the mountains" loading="lazy"><figcaption>The view</figcaption></figure>
+      <figure class="g6"><img src="images/lounge26/hero.jpg" alt="Lit stage and lounge seating at dusk" loading="lazy"><figcaption>After dark</figcaption></figure>
+    </div>
+    <div class="perks">
+      <div class="perk"><h3>VIP lounges</h3><p>Your home base all night, to relax, recharge, film and go live.</p></div>
+      <div class="perk"><h3>Meet and greets</h3><p>Hosted group moments as part of the VIP experience. Join if you'd like, never required.</p></div>
+      <div class="perk"><h3>The lineup</h3><p>We'll send you the headliners and full show details in your confirmation.</p></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="look">
+    <h2 id="look">Your Dolls Kill look</h2>
+    <p>Pick <b>two pieces</b> on <a href="https://www.dollskill.com" target="_blank" rel="noopener">dollskill.com</a>, gifted to you. Wear them however you like: your main look, or a second change for later in the night. They're yours to keep, and wearing them isn't required.</p>
+    <p>Want to bring your own outfits too? Bring as many changes as you like. When you do post your Dolls Kill pieces, a get-ready video or try-on goes a long way. Tag <b>@dollskill</b> and add <b>#gifted</b>.</p>
+  </section>
+
+  <section aria-labelledby="how">
+    <h2 id="how">How it works</h2>
+    <ol class="steps">
+      <li><div><b>Register below.</b><p>Your handles, your two Dolls Kill picks with sizes, a quick photo so we know who you are, and your signature on the release. It takes about 5 minutes.</p></div></li>
+      <li><div><b>Get your confirmation.</b><p>We'll text you about getting your pieces, your VIP check-in time, the address, and the headliners.</p></div></li>
+      <li><div><b>Start the party early.</b><p>Get-ready content, the drive up, the arrival. The excitement starts before you get there.</p></div></li>
+      <li><div><b>Live it up.</b><p>Check in with the PR STARPOWER team, enjoy the festival, come back to the VIP lounge, look amazing and go live.</p></div></li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="roles">
+    <h2 id="roles">Pick your vibe</h2>
+    <p>Choose the one that feels like you. Everyone is welcome in every part of the lounge.</p>
+    <div class="roles">
+      <div class="role"><h3>Style Squad</h3><p>You're the look of the night: carpet moments, outfit changes, photo moments.</p></div>
+      <div class="role"><h3>Correspondent</h3><p>On camera: reactions, interviews and festival moments. You may join the Newswire Hollywood live coverage.</p></div>
+      <div class="role"><h3>Live Team</h3><p>You go live from the lounges and the grounds so your followers feel like they're in the room.</p></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="post">
+    <h2 id="post">Posting guide</h2>
+    <p>Have fun with it. Get great shots, be the life of the party, and bring your followers along.</p>
+    <ul class="tight">
+      <li><b>Before:</b> a get-ready video, try-on or "on my way" Story. "Getting ready for SKVLK FEST" is perfect.</li>
+      <li><b>During:</b> Stories and Lives from the VIP lounge, the carpet and the stage. Golden-hour shots on the terrace hit hardest.</li>
+      <li><b>After:</b> a recap post or Reel. We'd love it if you keep it up.</li>
+    </ul>
+    <h3 style="margin-top:22px">Tap to copy the tags</h3>
+    <div class="tags">
+      <button type="button" class="tag must" data-copy="#SKVLKFEST">#SKVLKFEST (always)</button>
+      <button type="button" class="tag" data-copy="@skvlkfest">@skvlkfest</button>
+      <button type="button" class="tag" data-copy="@dollskill">@dollskill</button>
+      <button type="button" class="tag" data-copy="@prstarpower">@prstarpower</button>
+      <button type="button" class="tag" data-copy="@newswirehollywoodnetwork">@newswirehollywoodnetwork</button>
+      <button type="button" class="tag" data-copy="#gifted">#gifted</button>
+    </div>
+    <p>Feel free to tag the headliners too. We'll send their handles with the lineup.</p>
+    <p class="note"><b>One rule we have to follow:</b> when a post shows your gifted Dolls Kill pieces, put <b>#gifted</b> or "Gifted by @dollskill" at the start of the caption, or as on-screen text in Stories and Lives. It's a U.S. Federal Trade Commission rule, and it protects you as well as the brand.</p>
+
+    <h3 style="margin-top:22px">Caption starters</h3>
+    <div class="cap"><small>Getting ready</small><p>#gifted Getting ready for SKVLK FEST in @dollskill 🖤 See you in the VIP lounge. @skvlkfest @prstarpower #SKVLKFEST</p><button type="button" class="copy">Copy caption</button></div>
+    <div class="cap"><small>Live from the lounge</small><p>Live from the VIP Creator Lounge at @skvlkfest 🎡 Come hang. Wearing @dollskill #gifted @prstarpower #SKVLKFEST</p><button type="button" class="copy">Copy caption</button></div>
+    <div class="cap"><small>Recap</small><p>#gifted What a night. SKVLK FEST VIP Creator Lounge in my @dollskill look 🖤 Thank you @skvlkfest and @prstarpower. Coverage by @newswirehollywoodnetwork #SKVLKFEST</p><button type="button" class="copy">Copy caption</button></div>
+
+    <h3 style="margin-top:22px">What to bring</h3>
+    <ul class="tight">
+      <li>A fully charged phone and a power bank</li>
+      <li>A small clip-on wireless mic, and a pocket LED light if you have one</li>
+      <li>Leave big ring lights and tripods at home. The lounges are lit and styled for camera.</li>
+      <li>Photo ID and any outfit changes</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="press">
+    <h2 id="press">Coverage</h2>
+    <div class="press">Newswire Hollywood · Newswire Hollywood Network · Billboard <span>and more</span></div>
+  </section>
+
+  <section aria-labelledby="rules">
+    <h2 id="rules">VIP etiquette</h2>
+    <p class="lede" style="margin-top:0">You're the talent too. There will be a lot of high-profile celebrities in the house, and you belong in that room. Be fun, be confident and be fabulous. Say hi, share the vibe and enjoy the moment, then let it flow. Nobody here is a fan chasing a photo. We're all VIPs together.</p>
+    <p>Every star arrives with a team that protects their privacy, and we respect it. If someone's team says "not right now," smile, step back, and catch the next moment. Following the protocol is how we all keep the night beautiful and get invited back. And remember, the VIP Creator Lounge is your stage. That's where you take command, have fun and shine.</p>
+    <ul class="tight">
+      <li>18+ for the Creator Lounge. Bring a photo ID.</li>
+      <li>Arrive at your VIP check-in time, and keep your wristband on all night.</li>
+      <li>Keep the address private. Don't post it or share it.</li>
+      <li>Ask before you film or post a celebrity guest, and follow their team's lead. We'll set up the meet-and-greet moments.</li>
+      <li>Many festival guests are under 18. Keep minors out of your content unless a parent says OK.</li>
+      <li>Respect "no filming" areas and the family's private spaces.</li>
+      <li>Be kind to staff, security and each other. That's how we all get invited back.</li>
+    </ul>
+  </section>
+
+  <section id="register" aria-labelledby="reg">
+    <h2 id="reg">Register</h2>
+    <p>It takes about 5 minutes. Have your two Dolls Kill links ready.</p>
+
+    <div id="done" class="msg ok" hidden>You're in. Watch for a text from the PR STARPOWER team with your check-in time, the address and the lineup.</div>
+
+    <form id="lounge-form" action="https://formsubmit.co/matariterry@gmail.com" method="POST" enctype="multipart/form-data">
+      <input type="hidden" name="_subject" value="VIP Creator Lounge registration">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="true">
+      <input type="hidden" name="_next" id="next" value="">
+      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <fieldset>
+        <legend>About you</legend>
+        <div class="row">
+          <label for="f-legal">Full legal name<input id="f-legal" name="Legal name" required autocomplete="name"></label>
+          <label for="f-creator">Creator name<input id="f-creator" name="Creator name"></label>
+        </div>
+        <div class="row">
+          <label for="f-email">Email<input id="f-email" name="email" type="email" required autocomplete="email"></label>
+          <label for="f-phone">Mobile (for your check-in text)<input id="f-phone" name="Mobile" type="tel" required autocomplete="tel"></label>
+        </div>
+        <div class="row">
+          <label for="f-dob">Date of birth<input id="f-dob" name="Date of birth" type="date" required></label>
+          <label for="f-team">Who invited you?
+            <select id="f-team" name="Invited by" required>
+              <option value="">Choose one</option>
+              <option>Team Terry</option>
+              <option>Tati</option>
+              <option>Other PR STARPOWER team</option>
+            </select>
+          </label>
+        </div>
+        <label for="f-photo">A recent photo of you <span class="hint">A selfie is fine. It just helps us know who you are. JPG or PNG, under 5 MB.</span><input id="f-photo" name="Photo" type="file" accept="image/jpeg,image/png"></label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Your platforms</legend>
+        <div class="row">
+          <label for="f-ig">Instagram<input id="f-ig" name="Instagram" placeholder="@yourhandle"></label>
+          <label for="f-tt">TikTok<input id="f-tt" name="TikTok" placeholder="@yourhandle"></label>
+        </div>
+        <div class="row">
+          <label for="f-yt">YouTube, Twitch or other<input id="f-yt" name="Other platform"></label>
+          <label for="f-reach">Followers on your biggest platform<input id="f-reach" name="Followers (biggest platform)" inputmode="numeric" required></label>
+        </div>
+        <label for="f-role">Your vibe
+          <select id="f-role" name="Preferred role" required>
+            <option value="">Choose one</option>
+            <option>Style Squad</option>
+            <option>Correspondent</option>
+            <option>Live Team</option>
+          </select>
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Your Dolls Kill picks</legend>
+        <div class="row">
+          <label for="f-i1">Piece 1 link<input id="f-i1" name="Item 1 link" type="url" required placeholder="https://www.dollskill.com/..."></label>
+          <label for="f-s1">Piece 1 size<input id="f-s1" name="Item 1 size" required></label>
+        </div>
+        <div class="row">
+          <label for="f-i2">Piece 2 link<input id="f-i2" name="Item 2 link" type="url" required placeholder="https://www.dollskill.com/..."></label>
+          <label for="f-s2">Piece 2 size<input id="f-s2" name="Item 2 size" required></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Opportunities</legend>
+        <label class="check" for="f-live"><input id="f-live" name="Newswire Hollywood live" type="checkbox" value="Yes"><span>I'd love to be considered for the Newswire Hollywood live coverage.</span></label>
+        <label class="check" for="f-mg"><input id="f-mg" name="Meet and greet" type="checkbox" value="Yes"><span>Count me in for the VIP meet-and-greet moments.</span></label>
+        <label class="check" for="f-roster"><input id="f-roster" name="PR STARPOWER roster" type="checkbox" value="Yes"><span>Add me to the PR STARPOWER creator roster for future paid brand campaigns and VIP event invitations.</span></label>
+        <label for="f-kit">Media kit or rate card link <span class="hint">Optional</span><input id="f-kit" name="Media kit" type="url"></label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Release</legend>
+        <div class="release" tabindex="0" aria-label="Release text">
+          <h4>Creator Participation and Likeness Release</h4>
+          <ol>
+            <li><b>Permission to use your likeness.</b> I give PR STARPOWER, SKVLK FEST, Newswire Hollywood and the event sponsor Dolls Kill permission to photograph, film and record me at SKVLK FEST on November 7, 2026. They may use my name, image, likeness and voice, and the event content I post, in any media, to cover and promote the event and its sponsor, with no payment to me.</li>
+            <li><b>Gifted product.</b> The Dolls Kill pieces are a gift. Wearing them is my choice. When I post them, I'll tag @dollskill and disclose the gift with #gifted or "Gifted by @dollskill," as the FTC requires.</li>
+            <li><b>Conduct.</b> I'll follow the VIP etiquette, keep the address private, and follow staff and security directions. I understand I can be asked to leave if I don't.</li>
+            <li><b>No guarantees.</b> I understand that meet-and-greets, live segments and media features depend on the night and aren't guaranteed.</li>
+            <li><b>Age and identity.</b> I confirm I'm 18 or older and that the information I've given is true.</li>
+            <li><b>Responsibility.</b> I attend at my own risk and am responsible for my own belongings and conduct.</li>
+            <li><b>Privacy.</b> PR STARPOWER uses my details to run this event and, if I opt in, for future opportunities. It never sells them.</li>
+          </ol>
+        </div>
+        <label class="check" for="f-18"><input id="f-18" name="Confirms 18+" type="checkbox" value="Yes" required><span>I'm 18 or older and will bring a photo ID.</span></label>
+        <label class="check" for="f-agree"><input id="f-agree" name="Agrees to release" type="checkbox" value="Yes" required><span>I've read and agree to the Creator Participation and Likeness Release and the VIP etiquette.</span></label>
+        <div class="row">
+          <label for="f-sig">Type your full legal name to sign<input id="f-sig" name="Signature (typed)" required></label>
+          <label for="f-date">Date<input id="f-date" name="Signed date" readonly></label>
+        </div>
+      </fieldset>
+
+      <div id="err" class="msg warn" hidden></div>
+      <button type="submit" id="submit">Lock in my spot</button>
+    </form>
+  </section>
+
+  <footer>
+    <div><b>PR STARPOWER</b> · VIP Creator Lounge at SKVLK FEST</div>
+    <div>Questions: text the PR STARPOWER team at <b>646-315-2942</b> or email <b>info@prstarpower.com</b></div>
+  </footer>
+</div>
+
+<script>
+(function(){
+  document.getElementById('f-date').value=new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
+  function sel(el){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r)}
+  function copyText(t,btn,el){
+    var done=function(){var o=btn.textContent;btn.textContent='Copied';setTimeout(function(){btn.textContent=o},1400)};
+    try{navigator.clipboard.writeText(t).then(done,function(){sel(el||btn)})}catch(e){sel(el||btn)}
+  }
+  document.querySelectorAll('.tag').forEach(function(b){b.addEventListener('click',function(){copyText(b.dataset.copy,b)})});
+  document.querySelectorAll('.cap .copy').forEach(function(b){var p=b.parentNode.querySelector('p');b.addEventListener('click',function(){copyText(p.textContent,b,p)})});
+
+  var live=/prstarpower\.com$/.test(location.hostname);
+  var form=document.getElementById('lounge-form');
+  if(live){document.getElementById('next').value=location.origin+location.pathname+'?registered=1#register'}
+  if(/registered=1/.test(location.search)){document.getElementById('done').hidden=false;form.hidden=true}
+
+  form.addEventListener('submit',function(e){
+    var err=document.getElementById('err');err.hidden=true;
+    function stop(m){e.preventDefault();err.textContent=m;err.hidden=false}
+    var dob=new Date(document.getElementById('f-dob').value);
+    if(!isNaN(dob)&&dob>new Date(2008,10,7))return stop('The Creator Lounge is 18 and over. Check your date of birth.');
+    if(document.getElementById('f-sig').value.trim().toLowerCase()!==document.getElementById('f-legal').value.trim().toLowerCase())return stop('Your typed signature must match your full legal name.');
+    var f=document.getElementById('f-photo').files[0];
+    if(f&&f.size>5*1024*1024)return stop('Your photo is over 5 MB. Choose a smaller one.');
+    if(!live)return stop('Preview only. On prstarpower.com this sends your registration to the PR STARPOWER team.');
+    var b=document.getElementById('submit');b.disabled=true;b.textContent='Sending…';
+  });
+})();
+</script>
+</body>
+</html>
